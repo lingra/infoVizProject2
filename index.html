@@ -9,6 +9,9 @@
       
       <style>
           
+          #welcometext {
+              text-align: center;
+          }
           #buttons {
               background-color: aliceblue;
               height: auto;
@@ -22,7 +25,7 @@
               align-content: center;
           }
           .waveButton {
-              margin: 10px;
+              margin: 4px;
               padding: 10px;
               background-color:burlywood;
               color: saddlebrown;
@@ -63,6 +66,14 @@
           <div class="row">
               <div class="col-sm-1"></div>
               <div class="col-sm-10">
+                  <div class="row">
+                      <div class="col-sm-2"></div>
+                      <div class="col-sm-8">
+                          <h2 id="welcomeText">
+                          Children Qualities in </h2>
+                      </div>
+                      <div class="col-sm-2"></div>
+                  </div>
                   <div class="row">
                       <div class="col-sm-3"></div>
                       <div class="col-sm-6">
@@ -113,17 +124,16 @@
                       var headline = "Children Qualities in ";
                       
                       
-                      ////// ADD HEADER TEXT
-                      d3.select("body").insert("h2", ":first-child").text("How does the world see children's qualities?")
-                      d3.select("body").insert("h1", ":first-child").text(headline + waveData);
-                      
-                      
                       //////// GET RIGHT WAVE
                       var getWave = function(button) {
                           var but = document.getElementById(button);
                           waveData = but.value;
                           console.log(but.value);
-                      };
+                          
+                          var headText = document.getElementById('welcomeText');
+                          headText.innerHTML = '';
+                          headText.innerHTML += "Children Qualities in " + waveData;
+                          };
                       
                       
                       var countries = ["DZA", "AZE", "ARG", "AUS", "ARM", "BRA", "BLR", "CHL", "CHN", "TWN", "COL", "CYP", "ECU", "EST", "GEO", "PSE", "DEU", "GHA", "HTI", "HKG", "IND", "IRQ", "JPN", "KAZ", "JOR", "KOR", "KWT", "KGZ", "LBN", "LBY", "MYS", "MEX", "MAR", "NLD", "NZL", "NGA", "PAK", "PER", "PHL", "POL", "QAT", "ROU", "RUS", "RWA", "SGP", "SVN", "ZAF", "ZWE", "ESP", "SWE", "THA", "TTO", "TUN", "TUR", "UKR", "EGY", "USA", "URY", "UZB", "YEM"];
