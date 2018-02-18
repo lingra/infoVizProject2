@@ -1,0 +1,242 @@
+[
+ "DZA": {
+   "Country": "DZA",
+   "fillKey": 40
+ },
+ "AZE": {
+   "Country": "AZE",
+   "fillKey": 40
+ },
+ "ARG": {
+   "Country": "ARG",
+   "fillKey": 30
+ },
+ "AUS": {
+   "Country": "AUS",
+   "fillKey": 50
+ },
+ "ARM": {
+   "Country": "ARM",
+   "fillKey": 30
+ },
+ "BRA": {
+   "Country": "BRA",
+   "fillKey": 30
+ },
+ "BLR": {
+   "Country": "BLR",
+   "fillKey": 40
+ },
+ "CHL": {
+   "Country": "CHL",
+   "fillKey": 50
+ },
+ "CHN": {
+   "Country": "CHN",
+   "fillKey": 30
+ },
+ "TWN": {
+   "Country": "TWN",
+   "fillKey": 30
+ },
+ "COL": {
+   "Country": "COL",
+   "fillKey": 20
+ },
+ "CYP": {
+   "Country": "CYP",
+   "fillKey": 40
+ },
+ "ECU": {
+   "Country": "ECU",
+   "fillKey": 30
+ },
+ "EST": {
+   "Country": "EST",
+   "fillKey": 70
+ },
+ "GEO": {
+   "Country": "GEO",
+   "fillKey": 20
+ },
+ "PSE": {
+   "Country": "PSE",
+   "fillKey": 20
+ },
+ "DEU": {
+   "Country": "DEU",
+   "fillKey": 60
+ },
+ "GHA": {
+   "Country": "GHA",
+   "fillKey": 50
+ },
+ "HTI": {
+   "Country": "HTI",
+   "fillKey": 30
+ },
+ "HKG": {
+   "Country": "HKG",
+   "fillKey": 40
+ },
+ "IND": {
+   "Country": "IND",
+   "fillKey": 80
+ },
+ "IRQ": {
+   "Country": "IRQ",
+   "fillKey": 20
+ },
+ "JPN": {
+   "Country": "JPN",
+   "fillKey": 70
+ },
+ "KAZ": {
+   "Country": "KAZ",
+   "fillKey": 40
+ },
+ "JOR": {
+   "Country": "JOR",
+   "fillKey": 30
+ },
+ "KOR": {
+   "Country": "KOR",
+   "fillKey": 50
+ },
+ "KWI": {
+   "Country": "KWT",
+   "fillKey": 30
+ },
+ "KGZ": {
+   "Country": "KGZ",
+   "fillKey": 50
+ },
+ "LBN": {
+   "Country": "LBN",
+   "fillKey": 30
+ },
+ "LBY": {
+   "Country": "LBY",
+   "fillKey": 30
+ },
+ "MYS": {
+   "Country": "MYS",
+   "fillKey": 40
+ },
+ "MEX": {
+   "Country": "MEX",
+   "fillKey": 30
+ },
+ "MAR": {
+   "Country": "MAR",
+   "fillKey": 20
+ },
+ "NLD": {
+   "Country": "NLD",
+   "fillKey": 40
+ },
+ "NZL": {
+   "Country": "NZL",
+   "fillKey": 50
+ },
+ "NGA": {
+   "Country": "NGA",
+   "fillKey": 40
+ },
+ "PAK": {
+   "Country": "PAK",
+   "fillKey": 40
+ },
+ "PER": {
+   "Country": "PER",
+   "fillKey": 20
+ },
+ "PHL": {
+   "Country": "PHL",
+   "fillKey": 30
+ },
+ "POL": {
+   "Country": "POL",
+   "fillKey": 20
+ },
+ "QAT": {
+   "Country": "QAT",
+   "fillKey": 20
+ },
+ "ROU": {
+   "Country": "ROU",
+   "fillKey": 30
+ },
+ "RUS": {
+   "Country": "RUS",
+   "fillKey": 50
+ },
+ "RWA": {
+   "Country": "RWA",
+   "fillKey": 40
+ },
+ "SGP": {
+   "Country": "SGP",
+   "fillKey": 40
+ },
+ "SVN": {
+   "Country": "SVN",
+   "fillKey": 70
+ },
+ "ZAF": {
+   "Country": "ZAF",
+   "fillKey": 40
+ },
+ "ZWE": {
+   "Country": "ZWE",
+   "fillKey": 50
+ },
+ "ESP": {
+   "Country": "ESP",
+   "fillKey": 40
+ },
+ "SWE": {
+   "Country": "SWEDEN",
+   "fillKey": 30
+ },
+ "THA": {
+   "Country": "THA",
+   "fillKey": 50
+ },
+ "TTO": {
+   "Country": "TTO",
+   "fillKey": 30
+ },
+ "TUN": {
+   "Country": "TUN",
+   "fillKey": 30
+ },
+ "TUR": {
+   "Country": "TUR",
+   "fillKey": 40
+ },
+ "UKR": {
+   "Country": "UKR",
+   "fillKey": 40
+ },
+ "EGY": {
+   "Country": "EGYPT",
+   "fillKey": 20
+ },
+ "USA": {
+   "Country": "USA",
+   "fillKey": 40
+ },
+ "URY": {
+   "Country": "URY",
+   "fillKey": 40
+ },
+ "UZB": {
+   "Country": "UZB",
+   "fillKey": 60
+ },
+ "YEM": {
+   "Country": "YEMEN",
+   "fillKey": 30
+ }
+]

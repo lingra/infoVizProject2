@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <script src="https://d3js.org/d3.v3.min.js"></script>
+      <script src="http://d3js.org/topojson.v1.min.js"></script>
+      <script src="http://d3js.org/d3.geo.projection.v0.js"></script>
+      <script src="http://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
+      
+      <style>
+          #world-map {
+              background-color: aqua;
+          }
+      </style>
+      
+      
+  </head>
+  <body>
+
+      
+      <div id="world-map" style="position: relative; width: 500px; height: 300px;">
+      
+          
+          <script type="text/javascript">
+              var defaultOptions = {
+                  scope: 'world',
+                  //setProjection: setProjection, 
+                  projection: 'equirectangular', 
+                  height: null, 
+                  width: null, 
+                  responsive: false,
+                  done: function() {},
+                  fills: {
+                      defaultFill: '#ABDDA4'
+                  },
+                  dataType: 'csv',
+                  dataUrl: null,
+                  geographyConfig: {
+                      dataUrl: null,
+                      hideAntarctica: true,
+                      borderWidth: 1,
+                      borderOpacity: 1,
+                      borderColor: '#FDFDFD',
+                      popupTemplate: function(geography, data) {
+                          return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong></div>';
+                      },
+                      popupOnHover: true,
+                      highlightOnHover: true,
+                      highlightFillColor: '#FC8D59',
+                      highlightBorderColor: 'rgba(250, 15, 160, 0.2)',
+                      highlightBorderWidth: 2,
+                      highlightBorderOpacity: 1
+                  },
+                  bubblesConfig: {
+                      borderWidth: 2,
+                      borderOpacity: 1,
+                      borderColor: '#FFFFFF',
+                      popupOnHover: true,
+                      radius: null,
+                      popupTemplate: function(geography, data) {
+                          return '<div class="hoverinfo"><strong>' + data.name + '</strong></div>';
+                      },
+                      fillOpacity: 0.75,
+                      animate: true,
+                      highlightOnHover: true,
+                      highlightFillColor: '#FC8D59',
+                      highlightBorderColor: 'rgba(250, 15, 160, 0.2)',
+                      highlightBorderWidth: 2,
+                      highlightBorderOpacity: 1,
+                      highlightFillOpacity: 0.85,
+                      exitDelay: 100,
+                      key: JSON.stringify
+                  },
+                  arcConfig: {
+                      strokeColor: '#DD1C77',
+                      strokeWidth: 1,
+                      arcSharpness: 1,
+                      animationSpeed: 600
+                  }
+              };
+              
+              var basic = new Datamap({
+                  scope: "world",
+                  element: document.getElementById("world-map")
+              });
+
+          </script>
+      </div>
+      
+      
+
+    </body>
+</html>

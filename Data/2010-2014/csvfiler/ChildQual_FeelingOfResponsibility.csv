@@ -1,0 +1,62 @@
+﻿id;country;fillKey;Yes;No
+DZA;Algeria;60;56,3;43,7
+AZE;Azerbaijan;80;79,2;20,8
+ARG;Argentina;60;57,3;42,7
+AUS;Australia;70;65,9;34,1
+ARM;Armenia;80;79,6;20,4
+BRA;Brazil;80;77,9;22,1
+BLR;Belarus;80;80,6;19,4
+CHL;Chile;80;76,9;23,1
+CHN;China;70;65,9;34,1
+TWN;Taiwan;80;82,4;17,6
+COL;Colombia;80;82;18
+CYP;Cyprus;80;80,7;19,3
+ECU;Ecuador;80;75;25
+EST;Estonia;90;88,4;11,6
+GEO;Georgia;90;87,7;12,3
+PSE;Palestine;70;68,6;31,4
+DEU;Germany;80;80,9;19,1
+GHA;Ghana;30;34,9;65,1
+HTI;Haiti;30;34,7;65,2
+HKG;Hong Kong;80;79,3;20,7
+IND;India;90;90,5;9,5
+IRQ;Iraq;70;70,3;29,7
+JPN;Japan;90;87,3;12,7
+KAZ;Kazakhstan;80;75;25
+JOR;Jordan;70;73,1;26,9
+KOR;South Korea;90;87,8;12,2
+KWT;Kuwait;60;60,3;39,7
+KGZ;Kyrgyzstan;80;76,3;23,7
+LBN;Lebanon;50;51,7;48,3
+LBY;Libya;70;71,8;28,2
+MYS;Malaysia;60;64,9;35,1
+MEX;Mexico;70;74,9;25,2
+MAR;Morocco;60;63,8;36,2
+NLD;Netherlands;90;90,8;9,2
+NZL;New Zealand;60;56,1;43,9
+NGA;Nigeria;40;42,6;57,4
+PAK;Pakistan;60;62,3;37,7
+PER;Peru;70;71,3;28,7
+PHL;Philippines;70;67,2;32,8
+POL;Poland;80;81;19
+QAT;Qatar;80;75,6;24,4
+ROU;Romania;70;70,4;29,6
+RUS;Russia;80;77,5;22,3
+RWA;Rwanda;70;72;28
+SGP;Singapore;70;69,7;30,3
+SVN;Slovenia;80;83,1;16,9
+ZAF;South Africa;60;57,4;42,6
+ZWE;Zimbabwe;40;43,1;56,9
+ESP;Spain;80;78,6;21,4
+SWE;Sweden;80;82,5;17,5
+THA;Thailand;70;65,7;34,3
+TTO;Trinidad and Tobago;50;48,6;51,4
+TUN;Tunisia;80;77,3;22,7
+TUR;Turkey;70;66,5;33,5
+UKR;Ukraine;80;75,5;24,5
+EGY;Egypt;60;59,2;40,8
+USA;United States;70;65,2;34,8
+URY;Uruguay;80;81,6;18,4
+UZB;Uzbekistan;80;75;25
+YEM;Yemen;70;68,7;31,3
+Tot;Total;70;70,9;29

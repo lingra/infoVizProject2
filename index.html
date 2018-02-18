@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <script src="https://d3js.org/d3.v3.min.js"></script>
+      <script src="http://d3js.org/topojson.v1.min.js"></script>
+      <script src="http://d3js.org/d3.geo.projection.v0.js"></script>
+      <script src="http://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
+      <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> 
+      
+      <style>
+          
+          #buttons {
+              background-color: aliceblue;
+              height: auto;
+              padding: 7px;
+          }
+          #buttons .chosebutton {
+              margin: 5px;
+              padding: 7px;
+          }
+          #yearButtons {
+              align-content: center;
+          }
+          .waveButton {
+              margin: 10px;
+              padding: 10px;
+              background-color:burlywood;
+              color: saddlebrown;
+          }
+          .resetButton {
+              margin: 5px;
+              padding: 7px;
+              color: red;
+          }
+          #world-map {
+              background-color: ghostwhite;
+              position: relative; 
+              width: 900px; 
+              height: 630px;
+              display: inline-block;
+              text-align: center;
+          }
+          #printoutValues {
+              background-color: aqua;
+          }
+          #showTextData {
+              margin: 20px;
+          }
+          
+      </style>
+      
+  </head>
+  <body>
+      
+      <div id="buttons">
+          <div id="yearButtons">
+              <input class="waveButton" id="buttonFirst" name="buttonFirst" type="button" value="1995-1999"/>
+              <input class="waveButton" id="buttonSecond" name="buttonSecond" type="button" value="2000-2004"/>
+              <input class="waveButton" id="buttonThird" name="buttonThird" type="button" value="2005-2009"/>
+              <input class="waveButton" id="buttonForth" name="buttonForth" type="button" value="2010-2014"/>
+              <label id="year"></label>
+          </div>
+
+          <hr>
+
+          <input class="resetButton" id="buttonReset" name="buttonReset" type="button" value="Reset Data"/>
+          <input class="chosebutton" id="buttonDeterm" name="buttonDeterm" type="button" value="Determination Perseverance"/>
+          <input class="chosebutton" id="buttonRespons" name="buttonRespons" type="button" value="Feeling Of Responsibility"/>
+          <input class="chosebutton" id="buttonHardWork" name="buttonHardWork" type="button" value="Hard Work"/>
+          <input class="chosebutton" id="buttonImagin" name="buttonImagin" type="button" value="Imagination"/>
+          <input class="chosebutton" id="buttonIndepen" name="buttonIndepen" type="button" value="Independence"/>
+          <input class="chosebutton" id="buttonObedien" name="buttonObedien" type="button" value="Obedience"/>
+          <input class="chosebutton" id="buttonReligios" name="buttonReligios" type="button" value="Religious Faith"/>
+          <input class="chosebutton" id="buttonSelfEx" name="buttonSelfEx" type="button" value="Self Expression"/>
+          <input class="chosebutton" id="buttonThrift" name="buttonThrift" type="button" value="Thrift Saving Money And Things"/>
+          <input class="chosebutton" id="buttonToleranc" name="buttonToleranc" type="button" value="Tolerance And Respect For Other People"/>
+          <input class="chosebutton" id="buttonUnself" name="buttonUnself" type="button" value="Unselfishness"/>
+      </div>
+      
+
+      
+      <div id="world-map">          
+          <script type="text/javascript">
+              
+              var possibleWaves = ["1995-1999","2000-2004","2005-2009","2010-2014"];
+              var waveData = "";   // Temporary variable
+              var headline = "Children Qualities in ";
+              
+              ////// ADD HEADER TEXT
+              d3.select("body").insert("h2", ":first-child").text("How does the world see children's qualities?")
+              d3.select("body").insert("h1", ":first-child").text(headline + waveData);
+              
+              //////// GET RIGHT WAVE
+              var getWave = function(button) {
+                  var but = document.getElementById(button);
+                  //var lab = document.getElementById("year")
+                  waveData = but.value;
+                  
+                  //lab.innerHTML = "";
+                  //lab.innerHTML += "Showing: " + waveData; 
+
+                  console.log(but.value);
+              };
+              
+              var countries = ["DZA", "AZE", "ARG", "AUS", "ARM", "BRA", "BLR", "CHL", "CHN", "TWN", "COL", "CYP", "ECU", "EST", "GEO", "PSE", "DEU", "GHA", "HTI", "HKG", "IND", "IRQ", "JPN", "KAZ", "JOR", "KOR", "KWT", "KGZ", "LBN", "LBY", "MYS", "MEX", "MAR", "NLD", "NZL", "NGA", "PAK", "PER", "PHL", "POL", "QAT", "ROU", "RUS", "RWA", "SGP", "SVN", "ZAF", "ZWE", "ESP", "SWE", "THA", "TTO", "TUN", "TUR", "UKR", "EGY", "USA", "URY", "UZB", "YEM"];
+              
+              /// FILE PATHES BASED ON WAVES
+              var opt1 = "./Data/" + waveData + "/ChildQual_DeterminationPerseverance.json";
+              var opt2 = "./Data/" + waveData + "/ChildQual_FeelingOfResponsibility.json";
+              var opt3 = "./Data/" + waveData + "/ChildQual_HardWork.json";
+              var opt4 = "./Data/" + waveData + "/ChildQual_Imagination.json";
+              var opt5 = "./Data/" + waveData + "/ChildQual_Independence.json";
+              var opt6 = "./Data/" + waveData + "/ChildQual_Obedience.json";
+              var opt7 = "./Data/" + waveData + "/ChildQual_ReligiousFaith.json";
+              var opt8 = "./Data/" + waveData + "/ChildQual_SelfExpression.json";
+              var opt9 = "./Data/" + waveData + "/ChildQual_ThriftSavingMoneyAndThings.json";
+              var opt10 = "./Data/" + waveData + "/ChildQual_ToleranceAndRespectForOtherPeople.json";
+              var opt11 = "./Data/" + waveData + "/ChildQual_Unselfishness.json";
+              
+              //// DefaultData - Should be neutral
+              var defaultData = {
+                  DZA: {fillKey: 'LOW',
+                       "Ja": '0'},
+                  AZE: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  ARG: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  AUS: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  ARM: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  BRA: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  BLR: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  CHL: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  CHN: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  TWN: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  COL: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  CYP: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  ECU: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  EST: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  GEO: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  PSE: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  DEU: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  GHA: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  HTI: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  HKG: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  IND: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  IRQ: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  JPN: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  KAZ: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  JOR: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  KOR: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  KWT: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  KGZ: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  LBN: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  LBY: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  MYS: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  MEX: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  MAR: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  NLD: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  NZL: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  NGA: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  PAK: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  PER: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  PHL: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  POL: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  QUA: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  ROU: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  RUS: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  RWA: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  SGP: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  SVN: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  ZAF: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  ZWE: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  ESP: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  SWE: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  THA: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  TTO: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  TUN: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  TUR: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  UKR: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  EGY: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  USA: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  URY: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  UZB: {fillKey: 'LOW',
+                       "Ja": '0' },
+                  YEM: {fillKey: 'LOW',
+                       "Ja": '0' }
+              };
+              
+              var defaultDataOriginal = JSON.parse(JSON.stringify(defaultData));
+
+
+              /////// UPDATE DATA TO MAP
+              var updateData = function (file) {
+                  d3.json(file, function (data) {
+                      
+                      /// Nollställ kartan
+                      worldMap.updateChoropleth(defaultDataOriginal);
+                      
+                      /// Nya färger
+                      worldMap.updateChoropleth(data);
+                  })
+                  return '';
+              };
+              
+              
+              // CHANGE LABEL 
+              var changeLabel = function(info) {
+                  var lab = document.getElementById("year");
+                  
+                  lab.innerHTML = "";
+                  lab.innerHTML += "<p>Showing: " + waveData + "</p>" ; 
+                  lab.innerHTML += "<p>Information: " + info + "</p>";
+              };
+              
+              
+              
+              ///////// CREATE MAP
+              var worldMap = new Datamap({
+                  element: document.getElementById("world-map"),
+                  scope: "world",
+                  projection: 'mercator',
+                  fills: {
+                      0: 'FFFA90',
+                      10: 'EEE184',
+                      20: 'DDC878',
+                      30: 'CDAF6C',
+                      40: 'BC9660',
+                      50: 'AC7D55',
+                      60: '9B6449',
+                      70: '8A4B3D',
+                      80: '7A3131',
+                      90: '691825',
+                      100: '691825',
+                      LOW: '#59001A',       //Default of countries with data
+                      defaultFill: 'lightgrey'
+                  },
+                  
+                  data: {},
+                  
+                  geographyConfig: {
+                      highlightOnHover: true,
+                      //highlightFillColor: 'darkred',
+                      popupOnHover: true,     // landet
+                      //highlightBorderColor: 'darkgrey',
+                      popupTemplate: function(geo, data) {
+                          var div = document.getElementById('detailInfo');
+                          div.innerHTML = '';
+                          var hundra = 100;
+                          if (!data){
+                              this.highlightFillColor = 'lightgrey';
+                              this.highlightBorderWidth = 0;
+                              //this.highlightBorderColor = 'lightgrey';
+                              return '';
+                          } else {
+                              this.highlightFillColor = 'darkred';
+                              
+                              var div = document.getElementById('detailInfo');
+                              div.innerHTML = '';
+                              div.innerHTML += "<strong>" + data.country + "</strong><br> Yes: " + data.Yes + "%<br>No: " + data.No + "%";
+                              
+                              return "<div class='hoverinfo'>"+ data.country +"<br><strong>Yes: </strong>" + data.Yes + "%</div>";
+                          }
+                      },
+                  }
+              });
+              
+              
+              
+              //////////BUTTONS/////////////
+              
+              document.getElementById('buttonFirst').addEventListener('click', function(e) { getWave("buttonFirst") } , false);
+              
+              document.getElementById('buttonSecond').addEventListener('click', function(e){getWave("buttonSecond")} , false);
+              
+              document.getElementById('buttonThird').addEventListener('click', function(e){getWave("buttonThird")} , false);
+              
+              document.getElementById('buttonForth').addEventListener('click', function(e){getWave("buttonForth")} , false);
+              
+              
+              // RESET
+              document.getElementById('buttonReset').addEventListener('click', function(e) {
+                  worldMap.updateChoropleth(null, {reset: true});
+                  //worldMap.updateChoropleth(defaultDataOriginal);
+                  
+                  var div = document.getElementById('detailInfo');
+                  div.innerHTML = '';
+                  div.innerHTML += 'Reseted data';
+              } , false);
+              
+              // OTHERS
+              document.getElementById('buttonDeterm').addEventListener('click', function(e){ 
+                  if (!waveData){
+                  } else {
+                      opt1 = "./Data/" + waveData + "/ChildQual_DeterminationPerseverance.json";
+                      updateData(opt1);
+                      
+                      changeLabel(document.getElementById('buttonDeterm').value);
+                      
+                      var div = document.getElementById('detailInfo');
+                      div.innerHTML = '';
+                      div.innerHTML += 'Extra stuff';
+                  }
+              } , false);
+              
+              
+              document.getElementById("buttonRespons").addEventListener('click', function(e){ 
+                  if (!waveData){
+                  } else {
+                      opt2 = "./Data/" + waveData + "/ChildQual_FeelingOfResponsibility.json";
+                      updateData(opt2);
+                      
+                      changeLabel(document.getElementById('buttonRespons').value);
+                                  
+                      var div = document.getElementById('detailInfo');
+                      div.innerHTML = '';
+                      div.innerHTML += 'Extra stuff';
+                  }
+              } , false);
+              
+              
+              document.getElementById("buttonHardWork").addEventListener('click', function(e){ 
+                  if (!waveData){
+                  } else {
+                      opt3 = "./Data/" + waveData + "/ChildQual_HardWork.json";
+                      updateData(opt3); 
+                      
+                      changeLabel(document.getElementById('buttonHardWork').value);
+                                  
+                      var div = document.getElementById('detailInfo');
+                      div.innerHTML = '';
+                      div.innerHTML += 'Extra stuff';
+                  }
+              } , false);
+              
+              
+              document.getElementById("buttonImagin").addEventListener('click', function(e) { 
+                  if (!waveData){
+                  } else {
+                      opt4 = "./Data/" + waveData + "/ChildQual_Imagination.json";
+                      updateData(opt4); 
+                      
+                      changeLabel(document.getElementById('buttonImagin').value);
+                                  
+                      var div = document.getElementById('detailInfo');
+                      div.innerHTML = '';
+                      div.innerHTML += 'Extra stuff';
+                  }
+              } , false);
+              
+              
+              document.getElementById("buttonIndepen").addEventListener('click', function(e) { 
+                  if (!waveData){
+                  } else {
+                      opt5 = "./Data/" + waveData + "/ChildQual_Independence.json";
+                      updateData(opt5); 
+                      
+                      changeLabel(document.getElementById('buttonIndepen').value);
+                                  
+                      var div = document.getElementById('detailInfo');
+                      div.innerHTML = '';
+                      div.innerHTML += 'Extra stuff';
+                  }
+              } , false);
+              
+              
+              document.getElementById("buttonObedien").addEventListener('click', function(e) { 
+                  if (!waveData){
+                  } else {
+                      opt6 = "./Data/" + waveData + "/ChildQual_Obedience.json";
+                      updateData(opt6) 
+                      
+                      changeLabel(document.getElementById('buttonObedien').value);
+                                  
+                      var div = document.getElementById('detailInfo');
+                      div.innerHTML = '';
+                      div.innerHTML += 'Extra stuff';
+                  }
+              } , false);
+              
+              
+              document.getElementById("buttonReligios").addEventListener('click', function(e) { 
+                  if (!waveData){
+                  } else {
+                      opt7 = "./Data/" + waveData + "/ChildQual_ReligiousFaith.json";
+                      updateData(opt7) 
+                      
+                      changeLabel(document.getElementById('buttonReligios').value);
+                                  
+                      var div = document.getElementById('detailInfo');
+                      div.innerHTML = '';
+                      div.innerHTML += 'Extra stuff';
+                  }
+              }, false);
+              
+              
+              document.getElementById("buttonSelfEx").addEventListener('click', function(e) {
+                  if (!waveData){
+                  } else {
+                      opt8 = "./Data/" + waveData + "/ChildQual_SelfExpression.json";
+                      updateData(opt8) 
+                      
+                      changeLabel(document.getElementById('buttonSelfEx').value);
+                                  
+                      var div = document.getElementById('detailInfo');
+                      div.innerHTML = '';
+                      div.innerHTML += 'Extra stuff';
+                  }
+              } , false);
+              
+              
+              document.getElementById("buttonThrift").addEventListener('click', function(e) {
+                  if (!waveData){
+                  } else {
+                      opt9 = "./Data/" + waveData + "/ChildQual_ThriftSavingMoneyAndThings.json";
+                      updateData(opt9) 
+                      
+                      changeLabel(document.getElementById('buttonThrift').value);
+                                  
+                      var div = document.getElementById('detailInfo');
+                      div.innerHTML = '';
+                      div.innerHTML += 'Extra stuff';
+                  }
+              } , false);
+              
+              
+              document.getElementById("buttonToleranc").addEventListener('click', function(e) { 
+                  if (!waveData){
+                  } else {
+                      opt10 = "./Data/" + waveData + "/ChildQual_ToleranceAndRespectForOtherPeople.json";
+                      updateData(opt10);
+                      
+                      changeLabel(document.getElementById('buttonToleranc').value);
+                                  
+                      var div = document.getElementById('detailInfo');
+                      div.innerHTML = '';
+                      div.innerHTML += 'Extra stuff';
+                  }
+              } , false);
+              
+              
+              document.getElementById("buttonUnself").addEventListener('click', function(e) { 
+                  if (!waveData){
+                  } else {
+                      opt11 = "./Data/" + waveData + "/ChildQual_Unselfishness.json";
+                      updateData(opt11); 
+                      
+                      changeLabel(document.getElementById('buttonUnself').value);
+                                  
+                      var div = document.getElementById('detailInfo');
+                      div.innerHTML = '';
+                      div.innerHTML += 'Extra stuff';
+                  }
+              } , false);
+
+          </script>
+      </div>
+      <div id="legendInfo">
+          <script>
+              worldMap.legend();
+          </script>
+          <hr>
+      
+      </div>
+      <div id="showTextData">
+          <div class="row">
+              <div class="col-sm-3"></div>
+              <div class="col-sm-6">
+                  <div id="detailInfo">
+                  </div>
+              </div>
+              <div class="col-sm-3"></div>
+          </div>
+      </div>
+    </body>
+</html>
