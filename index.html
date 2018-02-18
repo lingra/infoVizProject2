@@ -23,6 +23,7 @@
           }
           #yearButtons {
               align-content: center;
+              justify-content: center; 
           }
           .waveButton {
               margin: 4px;
@@ -70,7 +71,7 @@
                       <div class="col-sm-2"></div>
                       <div class="col-sm-8">
                           <h2 id="welcomeText">
-                          Children Qualities in </h2>
+                          Children Qualities in: </h2>
                       </div>
                       <div class="col-sm-2"></div>
                   </div>
@@ -120,11 +121,11 @@
                   <script type="text/javascript">
                       
                       var possibleWaves = ["1995-1999","2000-2004","2005-2009","2010-2014"];
-                      var waveData = "";   // Temporary variable
+                      var waveData = "";
                       var headline = "Children Qualities in ";
                       
                       
-                      //////// GET RIGHT WAVE
+                      //////// GET RIGHT WAVE + UPDATE HEADER
                       var getWave = function(button) {
                           var but = document.getElementById(button);
                           waveData = but.value;
@@ -132,7 +133,7 @@
                           
                           var headText = document.getElementById('welcomeText');
                           headText.innerHTML = '';
-                          headText.innerHTML += "Children Qualities in " + waveData;
+                          headText.innerHTML += "Children Qualities in: " + waveData;
                           };
                       
                       
@@ -295,13 +296,13 @@
                       };
                       
                       
-                      // CHANGE LABEL 
+                      //////// CHANGE LABEL 
                       var changeLabel = function(info) {
-                          var lab = document.getElementById("year");
+                          var lab = document.getElementById("detailInfo");
                           
                           lab.innerHTML = "";
-                          lab.innerHTML += "<p>Showing: " + waveData + "</p>" ; 
-                          lab.innerHTML += "<p>Information: " + info + "</p>";
+                          lab.innerHTML += "<p><strong>Wave: </strong>" + waveData + "</p>" ; 
+                          lab.innerHTML += "<p><strong>Information about: </strong>" + info + "</p>";
                       };
                       
                       
@@ -331,7 +332,7 @@
                               popupOnHover: true,     // landet
                               //highlightBorderColor: 'darkgrey',
                               popupTemplate: function(geo, data) {
-                                  var div = document.getElementById('detailInfo');
+                                  var div = document.getElementById('countryDetail');
                                   div.innerHTML = '';
                                   if (!data){
                                       this.highlightFillColor = 'lightgrey';
@@ -340,7 +341,7 @@
                                       return '';
                                   } else {
                                       this.highlightFillColor = 'darkred';
-                                      var div = document.getElementById('detailInfo');
+                                      var div = document.getElementById('countryDetail');
                                       div.innerHTML = '';
                                       div.innerHTML += "<strong>" + data.country + "</strong><br> Yes: " + data.Yes + "%<br>No: " + data.No + "%";
                                       return "<div class='hoverinfo'>"+ data.country +"<br><strong>Yes: </strong>" + data.Yes + "%</div>";
@@ -352,7 +353,7 @@
                       
                       //////////BUTTONS/////////////
                       
-                      /// WAVE BUTTONS              
+                      ////// WAVE BUTTONS              
                       document.getElementById('buttonFirst').addEventListener('click', function(e) { getWave("buttonFirst") } , false);
                       
                       document.getElementById('buttonSecond').addEventListener('click', function(e){getWave("buttonSecond")} , false);
@@ -362,7 +363,7 @@
                       document.getElementById('buttonForth').addEventListener('click', function(e){getWave("buttonForth")} , false);
                       
                       
-                      // RESET
+                      ///// RESET
                       document.getElementById('buttonReset').addEventListener('click', function(e) {
                           //worldMap.updateChoropleth(null, {reset: true});
                           worldMap.updateChoropleth(defaultDataEmpty);
@@ -370,11 +371,11 @@
                               worldMap.updateChoropleth(data);
                           });
                           
-                          var div = document.getElementById('detailInfo');
+                          var div = document.getElementById('countryDetail');
                           div.innerHTML = '';
                           div.innerHTML += 'Reseted data';
                           
-                          var lab = document.getElementById("year");
+                          var lab = document.getElementById("countryDetail");
                           lab.innerHTML = "Reset data";
                       } , false);
                       
@@ -385,12 +386,9 @@
                           } else {
                               opt1 = "./Data/" + waveData + "/ChildQual_DeterminationPerseverance.json";
                               updateData(opt1);
-                              
                               changeLabel(document.getElementById('buttonDeterm').value);
+                              showAverage(opt1, waveData);
                               
-                              var div = document.getElementById('detailInfo');
-                              div.innerHTML = '';
-                              div.innerHTML += 'Extra stuff';
                           }
                       } , false);
                       
@@ -400,12 +398,9 @@
                           } else {
                               opt2 = "./Data/" + waveData + "/ChildQual_FeelingOfResponsibility.json";
                               updateData(opt2);
-                              
                               changeLabel(document.getElementById('buttonRespons').value);
+                              showAverage(opt2, waveData);
                               
-                              var div = document.getElementById('detailInfo');
-                              div.innerHTML = '';
-                              div.innerHTML += 'Extra stuff';
                           }
                       } , false);
                       
@@ -414,13 +409,10 @@
                           if (!waveData){
                           } else {
                               opt3 = "./Data/" + waveData + "/ChildQual_HardWork.json";
-                              updateData(opt3); 
-                              
+                              updateData(opt3);
                               changeLabel(document.getElementById('buttonHardWork').value);
+                              showAverage(opt3, waveData); 
                               
-                              var div = document.getElementById('detailInfo');
-                              div.innerHTML = '';
-                              div.innerHTML += 'Extra stuff';
                           }
                       } , false);
                       
@@ -429,13 +421,10 @@
                           if (!waveData){
                           } else {
                               opt4 = "./Data/" + waveData + "/ChildQual_Imagination.json";
-                              updateData(opt4); 
-                              
+                              updateData(opt4);
                               changeLabel(document.getElementById('buttonImagin').value);
+                              showAverage(opt4, waveData); 
                               
-                              var div = document.getElementById('detailInfo');
-                              div.innerHTML = '';
-                              div.innerHTML += 'Extra stuff';
                           }
                       } , false);
                       
@@ -444,13 +433,10 @@
                           if (!waveData){
                           } else {
                               opt5 = "./Data/" + waveData + "/ChildQual_Independence.json";
-                              updateData(opt5); 
-                              
+                              updateData(opt5);
                               changeLabel(document.getElementById('buttonIndepen').value);
+                              showAverage(opt5, waveData); 
                               
-                              var div = document.getElementById('detailInfo');
-                              div.innerHTML = '';
-                              div.innerHTML += 'Extra stuff';
                           }
                       } , false);
                       
@@ -460,12 +446,9 @@
                           } else {
                               opt6 = "./Data/" + waveData + "/ChildQual_Obedience.json";
                               updateData(opt6);
-                              
                               changeLabel(document.getElementById('buttonObedien').value);
+                              showAverage(opt6, waveData);
                               
-                              var div = document.getElementById('detailInfo');
-                              div.innerHTML = '';
-                              div.innerHTML += 'Extra stuff';
                           }
                       } , false);
                       
@@ -475,12 +458,9 @@
                           } else {
                               opt7 = "./Data/" + waveData + "/ChildQual_ReligiousFaith.json";
                               updateData(opt7);
-                              
                               changeLabel(document.getElementById('buttonReligios').value);
+                              showAverage(opt7, waveData);
                               
-                              var div = document.getElementById('detailInfo');
-                              div.innerHTML = '';
-                              div.innerHTML += 'Extra stuff';
                           }
                       }, false);
                       
@@ -490,12 +470,9 @@
                           } else {
                               opt8 = "./Data/" + waveData + "/ChildQual_SelfExpression.json";
                               updateData(opt8);
-                              
                               changeLabel(document.getElementById('buttonSelfEx').value);
+                              showAverage(opt8, waveData);
                               
-                              var div = document.getElementById('detailInfo');
-                              div.innerHTML = '';
-                              div.innerHTML += 'Extra stuff';
                           }
                       } , false);
                       
@@ -505,12 +482,9 @@
                           } else {
                               opt9 = "./Data/" + waveData + "/ChildQual_ThriftSavingMoneyAndThings.json";
                               updateData(opt9);
-                              
                               changeLabel(document.getElementById('buttonThrift').value);
+                              showAverage(opt9, waveData);
                               
-                              var div = document.getElementById('detailInfo');
-                              div.innerHTML = '';
-                              div.innerHTML += 'Extra stuff';
                           }
                       } , false);
                       
@@ -520,12 +494,9 @@
                           } else {
                               opt10 = "./Data/" + waveData + "/ChildQual_ToleranceAndRespectForOtherPeople.json";
                               updateData(opt10);
-                              
                               changeLabel(document.getElementById('buttonToleranc').value);
+                              showAverage(opt10, waveData);
                               
-                              var div = document.getElementById('detailInfo');
-                              div.innerHTML = '';
-                              div.innerHTML += 'Extra stuff';
                           }
                       } , false);
                       
@@ -535,14 +506,37 @@
                           } else {
                               opt11 = "./Data/" + waveData + "/ChildQual_Unselfishness.json";
                               updateData(opt11); 
-                              
                               changeLabel(document.getElementById('buttonUnself').value);
+                              showAverage(opt11, waveData);
                               
-                              var div = document.getElementById('detailInfo');
-                              div.innerHTML = '';
-                              div.innerHTML += 'Extra stuff';
                           }
                       } , false);
+                      
+                      
+                      /////////// SHOW AVERAGE
+                      var showAverage = function(file, wave) {
+                          var total = "";
+                          var tmpDic, totalName, totalValueYes, totalValueNo;
+                          console.log("file: " + file);
+                          
+                          
+                          d3.json(file, function (data) {
+                              console.log(data)
+                              tmpDic = JSON.parse(JSON.stringify(data));
+                              for (var i in data) {
+                                  console.log(i);
+                                  console.log(i.Yes);
+                              }
+                      
+                              console.log(tmpDic);
+                          })
+                          
+                          var lab = document.getElementById("totalAverage");
+                          lab.innerHTML = "";
+                          lab.innerHTML += "<p><strong>Average on the globe: </strong>" + totalValueYes + "</p>" ; 
+                      };
+                      
+                      
                       
                   </script>
               </div>
@@ -558,10 +552,14 @@
               <div id="showTextData">
                   <div class="row">
                       <div class="col-sm-2"></div>
-                      <div class="col-sm-6">
+                      <div class="col-sm-8">
                           <div id="detailInfo"></div>
+                          <hr>
+                          <div id="countryDetail"></div>
+                          <hr>
+                          <div id="totalAverage"></div>
                       </div>
-                      <div class="col-sm-4"></div>
+                      <div class="col-sm-2"></div>
                   </div>
               </div>
           </div>
