@@ -1,0 +1,246 @@
+{
+   "DZA": {
+      "Country": "Algeria",
+      "fillKey": "defaultFill"
+   },
+   "AZE": {
+      "Country": "Azerbaijan",
+      "fillKey": "defaultFill"
+   },
+   "ARG": {
+      "Country": "Argentina",
+      "fillKey": "defaultFill"
+   },
+   "AUS": {
+      "Country": "Australia",
+      "fillKey": "defaultFill"
+   },
+   "ARM": {
+      "Country": "Armenia",
+      "fillKey": "defaultFill"
+   },
+   "BRA": {
+      "Country": "Brazil",
+      "fillKey": "defaultFill"
+   },
+   "BLR": {
+      "Country": "Belarus",
+      "fillKey": "defaultFill"
+   },
+   "CHL": {
+      "Country": "Chile",
+      "fillKey": "defaultFill"
+   },
+   "CHN": {
+      "Country": "China",
+      "fillKey": "defaultFill"
+   },
+   "TWN": {
+      "Country": "Taiwan",
+      "fillKey": "defaultFill"
+   },
+   "COL": {
+      "Country": "Colombia",
+      "fillKey": "defaultFill"
+   },
+   "CYP": {
+      "Country": "Cyprus",
+      "fillKey": "defaultFill"
+   },
+   "ECU": {
+      "Country": "Ecuador",
+      "fillKey": "defaultFill"
+   },
+   "EST": {
+      "Country": "Estonia",
+      "fillKey": "defaultFill"
+   },
+   "GEO": {
+      "Country": "Georgia",
+      "fillKey": "defaultFill"
+   },
+   "PSE": {
+      "Country": "Palestine",
+      "fillKey": "defaultFill"
+   },
+   "DEU": {
+      "Country": "Germany",
+      "fillKey": "defaultFill"
+   },
+   "GHA": {
+      "Country": "Ghana",
+      "fillKey": "defaultFill"
+   },
+   "HTI": {
+      "Country": "Haiti",
+      "fillKey": "defaultFill"
+   },
+   "HKG": {
+      "Country": "Hong Kong",
+      "fillKey": "defaultFill"
+   },
+   "IND": {
+      "Country": "India",
+      "fillKey": "defaultFill"
+   },
+   "IRQ": {
+      "Country": "Iraq",
+      "fillKey": "defaultFill"
+   },
+   "JPN": {
+      "Country": "Japan",
+      "fillKey": "defaultFill"
+   },
+   "KAZ": {
+      "Country": "Kazakhstan",
+      "fillKey": "defaultFill"
+   },
+   "JOR": {
+      "Country": "Jordan",
+      "fillKey": "defaultFill"
+   },
+   "KOR": {
+      "Country": "South Korea",
+      "fillKey": "defaultFill"
+   },
+   "KWT": {
+      "Country": "Kuwait",
+      "fillKey": "defaultFill"
+   },
+   "KGZ": {
+      "Country": "Kyrgyzstan",
+      "fillKey": "defaultFill"
+   },
+   "LBN": {
+      "Country": "Lebanon",
+      "fillKey": "defaultFill"
+   },
+   "LBY": {
+      "Country": "Libya",
+      "fillKey": "defaultFill"
+   },
+   "MYS": {
+      "Country": "Malaysia",
+      "fillKey": "defaultFill"
+   },
+   "MEX": {
+      "Country": "Mexico",
+      "fillKey": "defaultFill"
+   },
+   "MAR": {
+      "Country": "Morocco",
+      "fillKey": "defaultFill"
+   },
+   "NLD": {
+      "Country": "Netherlands",
+      "fillKey": "defaultFill"
+   },
+   "NZL": {
+      "Country": "New Zealand",
+      "fillKey": "defaultFill"
+   },
+   "NGA": {
+      "Country": "Nigeria",
+      "fillKey": "defaultFill"
+   },
+   "PAK": {
+      "Country": "Pakistan",
+      "fillKey": "defaultFill"
+   },
+   "PER": {
+      "Country": "Peru",
+      "fillKey": "defaultFill"
+   },
+   "PHL": {
+      "Country": "Philippines",
+      "fillKey": "defaultFill"
+   },
+   "POL": {
+      "Country": "Poland",
+      "fillKey": "defaultFill"
+   },
+   "QAT": {
+      "Country": "Qatar",
+      "fillKey": "defaultFill"
+   },
+   "ROU": {
+      "Country": "Romania",
+      "fillKey": "defaultFill"
+   },
+   "RUS": {
+      "Country": "Russia",
+      "fillKey": "defaultFill"
+   },
+   "RWA": {
+      "Country": "Rwanda",
+      "fillKey": "defaultFill"
+   },
+   "SGP": {
+      "Country": "Singapore",
+      "fillKey": "defaultFill"
+   },
+   "SVN": {
+      "Country": "Slovenia",
+      "fillKey": "defaultFill"
+   },
+   "ZAF": {
+      "Country": "South Africa",
+      "fillKey": "defaultFill"
+   },
+   "ZWE": {
+      "Country": "Zimbabwe",
+      "fillKey": "defaultFill"
+   },
+   "ESP": {
+      "Country": "Spain",
+      "fillKey": "defaultFill"
+   },
+   "SWE": {
+      "Country": "Sweden",
+      "fillKey": "defaultFill"
+   },
+   "THA": {
+      "Country": "Thailand",
+      "fillKey": "defaultFill"
+   },
+   "TTO": {
+      "Country": "Trinidad and Tobago",
+      "fillKey": "defaultFill"
+   },
+   "TUN": {
+      "Country": "Tunisia",
+      "fillKey": "defaultFill"
+   },
+   "TUR": {
+      "Country": "Turkey",
+      "fillKey": "defaultFill"
+   },
+   "UKR": {
+      "Country": "Ukraine",
+      "fillKey": "defaultFill"
+   },
+   "EGY": {
+      "Country": "Egypt",
+      "fillKey": "defaultFill"
+   },
+   "USA": {
+      "Country": "United States",
+      "fillKey": "defaultFill"
+   },
+   "URY": {
+      "Country": "Uruguay",
+      "fillKey": "defaultFill"
+   },
+   "UZB": {
+      "Country": "Uzbekistan",
+      "fillKey": "defaultFill"
+   },
+   "YEM": {
+      "Country": "Yemen",
+      "fillKey": "defaultFill"
+   },
+   "Tot": {
+      "Country": "Total",
+      "fillKey": "defaultFill"
+   }
+}

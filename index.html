@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
       <script src="https://d3js.org/d3.v3.min.js"></script>
-      <script src="http://d3js.org/topojson.v1.min.js"></script>
-      <script src="http://d3js.org/d3.geo.projection.v0.js"></script>
-      <script src="http://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
-      <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> 
+      <script src="https://d3js.org/topojson.v1.min.js"></script>
+      <script src="https://d3js.org/d3.geo.projection.v0.js"></script>
+      <script src="https://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> 
       
       <style>
           
@@ -40,6 +40,13 @@
               display: inline-block;
               text-align: center;
           }
+          #legendInfo {
+              width: 100%;
+              align-content: center;
+          }
+          #showTextData {
+              height: 50px;
+          }
           #printoutValues {
               background-color: aqua;
           }
@@ -58,11 +65,10 @@
               <input class="waveButton" id="buttonSecond" name="buttonSecond" type="button" value="2000-2004"/>
               <input class="waveButton" id="buttonThird" name="buttonThird" type="button" value="2005-2009"/>
               <input class="waveButton" id="buttonForth" name="buttonForth" type="button" value="2010-2014"/>
-              <label id="year"></label>
+              <p><label id="year"></label></p>
           </div>
 
-          <hr>
-
+        
           <input class="resetButton" id="buttonReset" name="buttonReset" type="button" value="Reset Data"/>
           <input class="chosebutton" id="buttonDeterm" name="buttonDeterm" type="button" value="Determination Perseverance"/>
           <input class="chosebutton" id="buttonRespons" name="buttonRespons" type="button" value="Feeling Of Responsibility"/>
@@ -86,23 +92,22 @@
               var waveData = "";   // Temporary variable
               var headline = "Children Qualities in ";
               
+              
               ////// ADD HEADER TEXT
               d3.select("body").insert("h2", ":first-child").text("How does the world see children's qualities?")
               d3.select("body").insert("h1", ":first-child").text(headline + waveData);
               
+              
               //////// GET RIGHT WAVE
               var getWave = function(button) {
                   var but = document.getElementById(button);
-                  //var lab = document.getElementById("year")
                   waveData = but.value;
-                  
-                  //lab.innerHTML = "";
-                  //lab.innerHTML += "Showing: " + waveData; 
-
                   console.log(but.value);
               };
               
+              
               var countries = ["DZA", "AZE", "ARG", "AUS", "ARM", "BRA", "BLR", "CHL", "CHN", "TWN", "COL", "CYP", "ECU", "EST", "GEO", "PSE", "DEU", "GHA", "HTI", "HKG", "IND", "IRQ", "JPN", "KAZ", "JOR", "KOR", "KWT", "KGZ", "LBN", "LBY", "MYS", "MEX", "MAR", "NLD", "NZL", "NGA", "PAK", "PER", "PHL", "POL", "QAT", "ROU", "RUS", "RWA", "SGP", "SVN", "ZAF", "ZWE", "ESP", "SWE", "THA", "TTO", "TUN", "TUR", "UKR", "EGY", "USA", "URY", "UZB", "YEM"];
+              
               
               /// FILE PATHES BASED ON WAVES
               var opt1 = "./Data/" + waveData + "/ChildQual_DeterminationPerseverance.json";
@@ -116,6 +121,7 @@
               var opt9 = "./Data/" + waveData + "/ChildQual_ThriftSavingMoneyAndThings.json";
               var opt10 = "./Data/" + waveData + "/ChildQual_ToleranceAndRespectForOtherPeople.json";
               var opt11 = "./Data/" + waveData + "/ChildQual_Unselfishness.json";
+              
               
               //// DefaultData - Should be neutral
               var defaultData = {
@@ -242,6 +248,7 @@
               };
               
               var defaultDataOriginal = JSON.parse(JSON.stringify(defaultData));
+              var defaultDataEmpty = {};
 
 
               /////// UPDATE DATA TO MAP
@@ -249,7 +256,7 @@
                   d3.json(file, function (data) {
                       
                       /// Nollställ kartan
-                      worldMap.updateChoropleth(defaultDataOriginal);
+                      worldMap.updateChoropleth(defaultDataEmpty);
                       
                       /// Nya färger
                       worldMap.updateChoropleth(data);
@@ -275,18 +282,17 @@
                   scope: "world",
                   projection: 'mercator',
                   fills: {
-                      0: 'FFFA90',
-                      10: 'EEE184',
-                      20: 'DDC878',
-                      30: 'CDAF6C',
-                      40: 'BC9660',
-                      50: 'AC7D55',
-                      60: '9B6449',
-                      70: '8A4B3D',
-                      80: '7A3131',
-                      90: '691825',
-                      100: '691825',
-                      LOW: '#59001A',       //Default of countries with data
+                      0: '#FFFA90',
+                      10: '#EEE184',
+                      20: '#DDC878',
+                      30: '#CDAF6C',
+                      40: '#BC9660',
+                      50: '#AC7D55',
+                      60: '#9B6449',
+                      70: '#8A4B3D',
+                      80: '#7A3131',
+                      90: '#691825',
+                      100: '#691825',
                       defaultFill: 'lightgrey'
                   },
                   
@@ -323,6 +329,7 @@
               
               //////////BUTTONS/////////////
               
+              /// WAVE BUTTONS              
               document.getElementById('buttonFirst').addEventListener('click', function(e) { getWave("buttonFirst") } , false);
               
               document.getElementById('buttonSecond').addEventListener('click', function(e){getWave("buttonSecond")} , false);
@@ -334,13 +341,20 @@
               
               // RESET
               document.getElementById('buttonReset').addEventListener('click', function(e) {
-                  worldMap.updateChoropleth(null, {reset: true});
-                  //worldMap.updateChoropleth(defaultDataOriginal);
+                  //worldMap.updateChoropleth(null, {reset: true});
+                  worldMap.updateChoropleth(defaultDataEmpty);
+                  d3.json("./Data/resetValues.json", function (data) {
+                      worldMap.updateChoropleth(data);
+                  });
                   
                   var div = document.getElementById('detailInfo');
                   div.innerHTML = '';
                   div.innerHTML += 'Reseted data';
+                  
+                  var lab = document.getElementById("year");
+                  lab.innerHTML = "Reset data";
               } , false);
+              
               
               // OTHERS
               document.getElementById('buttonDeterm').addEventListener('click', function(e){ 
@@ -509,7 +523,7 @@
 
           </script>
       </div>
-      <div id="legendInfo">
+      <div id="legendInfo" width=100%>
           <script>
               worldMap.legend();
           </script>
