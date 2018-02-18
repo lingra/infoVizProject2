@@ -166,9 +166,13 @@
                                "Ja": '0' },
                           ARM: {fillKey: 'LOW',
                                "Ja": '0' },
+                          AND: {fillKey: 'LOW',
+                               "Ja": '0' },
                           BRA: {fillKey: 'LOW',
                                "Ja": '0' },
                           BLR: {fillKey: 'LOW',
+                               "Ja": '0' },
+                          CAN: {fillKey: 'LOW',
                                "Ja": '0' },
                           CHL: {fillKey: 'LOW',
                                "Ja": '0' },
@@ -183,6 +187,10 @@
                           ECU: {fillKey: 'LOW',
                                "Ja": '0' },
                           EST: {fillKey: 'LOW',
+                               "Ja": '0' },
+                          FIN: {fillKey: 'LOW',
+                               "Ja": '0' },
+                          FRA: {fillKey: 'LOW',
                                "Ja": '0' },
                           GEO: {fillKey: 'LOW',
                                "Ja": '0' },
@@ -227,6 +235,8 @@
                           NZL: {fillKey: 'LOW',
                                "Ja": '0' },
                           NGA: {fillKey: 'LOW',
+                               "Ja": '0' },
+                          NOR: {fillKey: 'LOW',
                                "Ja": '0' },
                           PAK: {fillKey: 'LOW',
                                "Ja": '0' },
@@ -284,15 +294,19 @@
                       
                       /////// UPDATE DATA TO MAP
                       var updateData = function (file) {
-                          d3.json(file, function (data) {
-                              
-                              /// Nollställ kartan
-                              worldMap.updateChoropleth(defaultDataEmpty);
-                              
-                              /// Nya färger
-                              worldMap.updateChoropleth(data);
-                          })
-                          return '';
+                          try {
+                              d3.json(file, function (data) {
+
+                                  /// Nollställ kartan
+                                  worldMap.updateChoropleth(defaultDataEmpty);
+
+                                  /// Nya färger
+                                  worldMap.updateChoropleth(data);
+                              })
+                              return '';
+                          } catch(err) {
+                              return "error";
+                          }
                       };
                       
                       
@@ -385,7 +399,7 @@
                           if (!waveData){
                           } else {
                               opt1 = "./Data/" + waveData + "/ChildQual_DeterminationPerseverance.json";
-                              updateData(opt1);
+                              testerr = updateData(opt1);
                               changeLabel(document.getElementById('buttonDeterm').value);
                               showAverage(opt1, waveData);
                               
@@ -469,7 +483,9 @@
                           if (!waveData){
                           } else {
                               opt8 = "./Data/" + waveData + "/ChildQual_SelfExpression.json";
-                              updateData(opt8);
+                              testerr = updateData(opt8);
+                              if (testerr == "error")
+                                  document.getElementById("buttonSelfEx").disabled = true;
                               changeLabel(document.getElementById('buttonSelfEx').value);
                               showAverage(opt8, waveData);
                               
@@ -516,16 +532,18 @@
                       /////////// SHOW AVERAGE
                       var showAverage = function(file, wave) {
                           var total = "";
-                          var tmpDic, totalName, totalValueYes, totalValueNo;
-                          console.log("file: " + file);
-                          
+                          var tmpDic, totalName, totalValueYes, totalValueNo;                
                           
                           d3.json(file, function (data) {
                               console.log(data)
                               tmpDic = JSON.parse(JSON.stringify(data));
-                              for (var i in data) {
+                              /*for (var i in tmpDic) {
                                   console.log(i);
                                   console.log(i.Yes);
+                              }*/
+                              console.log(data.length);
+                              for (var i = 0; i < data.length ; i ++) {
+                                  console.log("i:" + i);
                               }
                       
                               console.log(tmpDic);
