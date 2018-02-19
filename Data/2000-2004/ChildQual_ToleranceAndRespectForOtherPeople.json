@@ -2,253 +2,253 @@
    "ALB": {
       "Country": "Albania",
       "fillKey": 80,
-      "Yes": "80",
-      "No": "20"
+      "Yes": 80,
+      "No": 20
    },
    "DZA": {
       "Country": "Algeria",
       "fillKey": 50,
-      "Yes": "54",
-      "No": "46"
+      "Yes": 54,
+      "No": 46
    },
    "ARG": {
       "Country": "Argentina",
       "fillKey": 70,
-      "Yes": "70.4",
-      "No": "29.6"
+      "Yes": 70.4,
+      "No": 29.6
    },
    "BGD": {
       "Country": "Bangladesh",
       "fillKey": 70,
-      "Yes": "70.9",
-      "No": "29.1"
+      "Yes": 70.9,
+      "No": 29.1
    },
    "BIH": {
       "Country": "Bosnia Herzegovina",
       "fillKey": 70,
-      "Yes": "71.7",
-      "No": "28.3"
+      "Yes": 71.7,
+      "No": 28.3
    },
    "CAN": {
       "Country": "Canada",
       "fillKey": 80,
-      "Yes": "80.6",
-      "No": "19.4"
+      "Yes": 80.6,
+      "No": 19.4
    },
    "CHL": {
       "Country": "Chile",
       "fillKey": 80,
-      "Yes": "76",
-      "No": "24"
+      "Yes": 76,
+      "No": 24
    },
    "CHN": {
       "Country": "China",
       "fillKey": 70,
-      "Yes": "72.6",
-      "No": "27.4"
+      "Yes": 72.6,
+      "No": 27.4
    },
    "IND": {
       "Country": "India",
       "fillKey": 60,
-      "Yes": "63.2",
-      "No": "36.8"
+      "Yes": 63.2,
+      "No": 36.8
    },
    "IDN": {
       "Country": "Indonesia",
       "fillKey": 60,
-      "Yes": "62.9",
-      "No": "37.1"
+      "Yes": 62.9,
+      "No": 37.1
    },
    "IRN": {
       "Country": "Iran",
       "fillKey": 60,
-      "Yes": "59",
-      "No": "41"
+      "Yes": 59,
+      "No": 41
    },
    "IRQ": {
       "Country": "Iraq",
       "fillKey": 80,
-      "Yes": "77.8",
-      "No": "22.2"
+      "Yes": 77.8,
+      "No": 22.2
    },
    "ISR": {
       "Country": "Israel",
       "fillKey": 80,
-      "Yes": "81.9",
-      "No": "18.1"
+      "Yes": 81.9,
+      "No": 18.1
    },
    "JPN": {
       "Country": "Japan",
       "fillKey": 70,
-      "Yes": "71.2",
-      "No": "28.8"
+      "Yes": 71.2,
+      "No": 28.8
    },
    "JOR": {
       "Country": "Jordan",
       "fillKey": 70,
-      "Yes": "67.3",
-      "No": "32.7"
+      "Yes": 67.3,
+      "No": 32.7
    },
    "KOR": {
       "Country": "South Korea",
       "fillKey": 60,
-      "Yes": "64.7",
-      "No": "35.3"
+      "Yes": 64.7,
+      "No": 35.3
    },
    "KGZ": {
       "Country": "Kyrgyzstan",
       "fillKey": 70,
-      "Yes": "65.5",
-      "No": "34.5"
+      "Yes": 65.5,
+      "No": 34.5
    },
    "MEX": {
       "Country": "Mexico",
       "fillKey": 70,
-      "Yes": "70.6",
-      "No": "29.4"
+      "Yes": 70.6,
+      "No": 29.4
    },
    "MDA": {
       "Country": "Moldova",
       "fillKey": 80,
-      "Yes": "77.9",
-      "No": "22.1"
+      "Yes": 77.9,
+      "No": 22.1
    },
    "MAR": {
       "Country": "Morocco",
       "fillKey": 70,
-      "Yes": "74.3",
-      "No": "25.7"
+      "Yes": 74.3,
+      "No": 25.7
    },
    "NGA": {
       "Country": "Nigeria",
       "fillKey": 60,
-      "Yes": "59.1",
-      "No": "40.9"
+      "Yes": 59.1,
+      "No": 40.9
    },
    "PAK": {
       "Country": "Pakistan",
       "fillKey": 50,
-      "Yes": "53",
-      "No": "47"
+      "Yes": 53,
+      "No": 47
    },
    "PER": {
       "Country": "Peru",
       "fillKey": 70,
-      "Yes": "72.6",
-      "No": "27.4"
+      "Yes": 72.6,
+      "No": 27.4
    },
    "PHL": {
       "Country": "Philippines",
       "fillKey": 60,
-      "Yes": "60.1",
-      "No": "39.9"
+      "Yes": 60.1,
+      "No": 39.9
    },
    "PRI": {
       "Country": "Puerto Rico",
       "fillKey": 60,
-      "Yes": "60.7",
-      "No": "39.3"
+      "Yes": 60.7,
+      "No": 39.3
    },
    "SAU": {
       "Country": "Saudi Arabia",
       "fillKey": 60,
-      "Yes": "56.4",
-      "No": "43.6"
+      "Yes": 56.4,
+      "No": 43.6
    },
    "SGP": {
       "Country": "Singapore",
       "fillKey": 70,
-      "Yes": "69.8",
-      "No": "30.2"
+      "Yes": 69.8,
+      "No": 30.2
    },
    "VNM": {
       "Country": "Viet Nam",
       "fillKey": 70,
-      "Yes": "67.9",
-      "No": "32.1"
+      "Yes": 67.9,
+      "No": 32.1
    },
    "ZAF": {
       "Country": "South Africa",
       "fillKey": 70,
-      "Yes": "74.1",
-      "No": "25.9"
+      "Yes": 74.1,
+      "No": 25.9
    },
    "ZWE": {
       "Country": "Zimbabwe",
       "fillKey": 80,
-      "Yes": "78.2",
-      "No": "21.8"
+      "Yes": 78.2,
+      "No": 21.8
    },
    "ESP": {
       "Country": "Spain",
       "fillKey": 80,
-      "Yes": "77",
-      "No": "23"
+      "Yes": 77,
+      "No": 23
    },
    "SWE": {
       "Country": "Sweden",
       "fillKey": 90,
-      "Yes": "92.5",
-      "No": "7.5"
+      "Yes": 92.5,
+      "No": 7.5
    },
    "TUR": {
       "Country": "Turkey",
       "fillKey": 60,
-      "Yes": "64.3",
-      "No": "35.7"
+      "Yes": 64.3,
+      "No": 35.7
    },
    "UGA": {
       "Country": "Uganda",
       "fillKey": 60,
-      "Yes": "56.8",
-      "No": "43.2"
+      "Yes": 56.8,
+      "No": 43.2
    },
    "MKD": {
       "Country": "Macedonia",
       "fillKey": 80,
-      "Yes": "75.3",
-      "No": "24.7"
+      "Yes": 75.3,
+      "No": 24.7
    },
    "EGY": {
       "Country": "Egypt",
       "fillKey": 60,
-      "Yes": "64.6",
-      "No": "35.4"
+      "Yes": 64.6,
+      "No": 35.4
    },
    "TZA": {
       "Country": "Tanzania",
       "fillKey": 80,
-      "Yes": "83.6",
-      "No": "16.4"
+      "Yes": 83.6,
+      "No": 16.4
    },
    "USA": {
       "Country": "United States",
       "fillKey": 80,
-      "Yes": "79.5",
-      "No": "20.5"
+      "Yes": 79.5,
+      "No": 20.5
    },
    "VEN": {
       "Country": "Venezuela",
       "fillKey": 80,
-      "Yes": "79.6",
-      "No": "20.4"
+      "Yes": 79.6,
+      "No": 20.4
    },
    "SRB": {
       "Country": "Serbia",
       "fillKey": 60,
-      "Yes": "64.5",
-      "No": "35.5"
+      "Yes": 64.5,
+      "No": 35.5
    },
    "MNE": {
       "Country": "Montenegro",
       "fillKey": 60,
-      "Yes": "57.1",
-      "No": "42.9"
+      "Yes": 57.1,
+      "No": 42.9
    },
    "TOT": {
       "Country": "Total",
       "fillKey": 70,
-      "Yes": "69.2",
-      "No": "30.8"
+      "Yes": 69.2,
+      "No": 30.8
    }
 }

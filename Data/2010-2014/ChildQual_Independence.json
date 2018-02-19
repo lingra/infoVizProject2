@@ -1,368 +1,368 @@
 {
    "DZA": {
-      "country": "Algeria",
+      "Country": "Algeria",
       "fillKey": 30,
-      "Mentioned": "31.2",
-      "Not mentioned": "68.8"
+      "Yes": 31.2,
+      "No": 68.8
    },
    "AZE": {
-      "country": "Azerbaijan",
+      "Country": "Azerbaijan",
       "fillKey": 60,
-      "Mentioned": "58.5",
-      "Not mentioned": "41.5"
+      "Yes": 58.5,
+      "No": 41.5
    },
    "ARG": {
-      "country": "Argentina",
+      "Country": "Argentina",
       "fillKey": 40,
-      "Mentioned": "44.1",
-      "Not mentioned": "55.9"
+      "Yes": 44.1,
+      "No": 55.9
    },
    "AUS": {
-      "country": "Australia",
+      "Country": "Australia",
       "fillKey": 70,
-      "Mentioned": "65",
-      "Not mentioned": "35"
+      "Yes": 65,
+      "No": 35
    },
    "ARM": {
-      "country": "Armenia",
+      "Country": "Armenia",
       "fillKey": 30,
-      "Mentioned": "28",
-      "Not mentioned": "72"
+      "Yes": 28,
+      "No": 72
    },
    "BRA": {
-      "country": "Brazil",
+      "Country": "Brazil",
       "fillKey": 40,
-      "Mentioned": "37.6",
-      "Not mentioned": "62.4"
+      "Yes": 37.6,
+      "No": 62.4
    },
    "BLR": {
-      "country": "Belarus",
+      "Country": "Belarus",
       "fillKey": 40,
-      "Mentioned": "38.6",
-      "Not mentioned": "61.4"
+      "Yes": 38.6,
+      "No": 61.4
    },
    "CHL": {
-      "country": "Chile",
+      "Country": "Chile",
       "fillKey": 50,
-      "Mentioned": "49.2",
-      "Not mentioned": "50.8"
+      "Yes": 49.2,
+      "No": 50.8
    },
    "CHN": {
-      "country": "China",
+      "Country": "China",
       "fillKey": 70,
-      "Mentioned": "69.7",
-      "Not mentioned": "30.3"
+      "Yes": 69.7,
+      "No": 30.3
    },
    "TWN": {
-      "country": "Taiwan",
+      "Country": "Taiwan",
       "fillKey": 70,
-      "Mentioned": "72.3",
-      "Not mentioned": "27.7"
+      "Yes": 72.3,
+      "No": 27.7
    },
    "COL": {
-      "country": "Colombia",
+      "Country": "Colombia",
       "fillKey": 40,
-      "Mentioned": "36.4",
-      "Not mentioned": "63.6"
+      "Yes": 36.4,
+      "No": 63.6
    },
    "CYP": {
-      "country": "Cyprus",
+      "Country": "Cyprus",
       "fillKey": 40,
-      "Mentioned": "43.1",
-      "Not mentioned": "56.9"
+      "Yes": 43.1,
+      "No": 56.9
    },
    "ECU": {
-      "country": "Ecuador",
+      "Country": "Ecuador",
       "fillKey": 40,
-      "Mentioned": "37.4",
-      "Not mentioned": "62.6"
+      "Yes": 37.4,
+      "No": 62.6
    },
    "EST": {
-      "country": "Estonia",
+      "Country": "Estonia",
       "fillKey": 50,
-      "Mentioned": "54.5",
-      "Not mentioned": "45.5"
+      "Yes": 54.5,
+      "No": 45.5
    },
    "GEO": {
-      "country": "Georgia",
+      "Country": "Georgia",
       "fillKey": 60,
-      "Mentioned": "61.6",
-      "Not mentioned": "38.4"
+      "Yes": 61.6,
+      "No": 38.4
    },
    "PSE": {
-      "country": "Palestine",
+      "Country": "Palestine",
       "fillKey": 40,
-      "Mentioned": "42.9",
-      "Not mentioned": "57.1"
+      "Yes": 42.9,
+      "No": 57.1
    },
    "DEU": {
-      "country": "Germany",
+      "Country": "Germany",
       "fillKey": 70,
-      "Mentioned": "73.5",
-      "Not mentioned": "26.5"
+      "Yes": 73.5,
+      "No": 26.5
    },
    "GHA": {
-      "country": "Ghana",
+      "Country": "Ghana",
       "fillKey": 30,
-      "Mentioned": "28.8",
-      "Not mentioned": "71.2"
+      "Yes": 28.8,
+      "No": 71.2
    },
    "HTI": {
-      "country": "Haiti",
+      "Country": "Haiti",
       "fillKey": 20,
-      "Mentioned": "16.8",
-      "Not mentioned": "83.1"
+      "Yes": 16.8,
+      "No": 83.1
    },
    "HKG": {
-      "country": "Hong Kong",
+      "Country": "Hong Kong",
       "fillKey": 70,
-      "Mentioned": "72.6",
-      "Not mentioned": "27.4"
+      "Yes": 72.6,
+      "No": 27.4
    },
    "IND": {
-      "country": "India",
+      "Country": "India",
       "fillKey": 90,
-      "Mentioned": "89.9",
-      "Not mentioned": "10.1"
+      "Yes": 89.9,
+      "No": 10.1
    },
    "IRQ": {
-      "country": "Iraq",
+      "Country": "Iraq",
       "fillKey": 40,
-      "Mentioned": "36.8",
-      "Not mentioned": "63.2"
+      "Yes": 36.8,
+      "No": 63.2
    },
    "JPN": {
-      "country": "Japan",
+      "Country": "Japan",
       "fillKey": 70,
-      "Mentioned": "67.7",
-      "Not mentioned": "32.3"
+      "Yes": 67.7,
+      "No": 32.3
    },
    "KAZ": {
-      "country": "Kazakhstan",
+      "Country": "Kazakhstan",
       "fillKey": 40,
-      "Mentioned": "43.7",
-      "Not mentioned": "56.3"
+      "Yes": 43.7,
+      "No": 56.3
    },
    "JOR": {
-      "country": "Jordan",
+      "Country": "Jordan",
       "fillKey": 40,
-      "Mentioned": "43.6",
-      "Not mentioned": "56.4"
+      "Yes": 43.6,
+      "No": 56.4
    },
    "KOR": {
-      "country": "South Korea",
+      "Country": "South Korea",
       "fillKey": 60,
-      "Mentioned": "57.8",
-      "Not mentioned": "42.2"
+      "Yes": 57.8,
+      "No": 42.2
    },
    "KWT": {
-      "country": "Kuwait",
+      "Country": "Kuwait",
       "fillKey": 40,
-      "Mentioned": "41.8",
-      "Not mentioned": "58.2"
+      "Yes": 41.8,
+      "No": 58.2
    },
    "KGZ": {
-      "country": "Kyrgyzstan",
+      "Country": "Kyrgyzstan",
       "fillKey": 60,
-      "Mentioned": "61.2",
-      "Not mentioned": "38.8"
+      "Yes": 61.2,
+      "No": 38.8
    },
    "LBN": {
-      "country": "Lebanon",
+      "Country": "Lebanon",
       "fillKey": 30,
-      "Mentioned": "32.3",
-      "Not mentioned": "67.7"
+      "Yes": 32.3,
+      "No": 67.7
    },
    "LBY": {
-      "country": "Libya",
+      "Country": "Libya",
       "fillKey": 40,
-      "Mentioned": "38.4",
-      "Not mentioned": "61.6"
+      "Yes": 38.4,
+      "No": 61.6
    },
    "MYS": {
-      "country": "Malaysia",
+      "Country": "Malaysia",
       "fillKey": 70,
-      "Mentioned": "71.7",
-      "Not mentioned": "28.3"
+      "Yes": 71.7,
+      "No": 28.3
    },
    "MEX": {
-      "country": "Mexico",
+      "Country": "Mexico",
       "fillKey": 40,
-      "Mentioned": "38.5",
-      "Not mentioned": "61.5"
+      "Yes": 38.5,
+      "No": 61.5
    },
    "MAR": {
-      "country": "Morocco",
+      "Country": "Morocco",
       "fillKey": 40,
-      "Mentioned": "43",
-      "Not mentioned": "57"
+      "Yes": 43,
+      "No": 57
    },
    "NLD": {
-      "country": "Netherlands",
+      "Country": "Netherlands",
       "fillKey": 60,
-      "Mentioned": "60.7",
-      "Not mentioned": "39.3"
+      "Yes": 60.7,
+      "No": 39.3
    },
    "NZL": {
-      "country": "New Zealand",
+      "Country": "New Zealand",
       "fillKey": 50,
-      "Mentioned": "53.5",
-      "Not mentioned": "46.5"
+      "Yes": 53.5,
+      "No": 46.5
    },
    "NGA": {
-      "country": "Nigeria",
+      "Country": "Nigeria",
       "fillKey": 40,
-      "Mentioned": "38.9",
-      "Not mentioned": "61.1"
+      "Yes": 38.9,
+      "No": 61.1
    },
    "PAK": {
-      "country": "Pakistan",
+      "Country": "Pakistan",
       "fillKey": 40,
-      "Mentioned": "43.1",
-      "Not mentioned": "56.9"
+      "Yes": 43.1,
+      "No": 56.9
    },
    "PER": {
-      "country": "Peru",
+      "Country": "Peru",
       "fillKey": 30,
-      "Mentioned": "33.3",
-      "Not mentioned": "66.7"
+      "Yes": 33.3,
+      "No": 66.7
    },
    "PHL": {
-      "country": "Philippines",
+      "Country": "Philippines",
       "fillKey": 70,
-      "Mentioned": "65",
-      "Not mentioned": "35"
+      "Yes": 65,
+      "No": 35
    },
    "POL": {
-      "country": "Poland",
+      "Country": "Poland",
       "fillKey": 40,
-      "Mentioned": "43.4",
-      "Not mentioned": "56.6"
+      "Yes": 43.4,
+      "No": 56.6
    },
    "QAT": {
-      "country": "Qatar",
+      "Country": "Qatar",
       "fillKey": 30,
-      "Mentioned": "34.3",
-      "Not mentioned": "65.7"
+      "Yes": 34.3,
+      "No": 65.7
    },
    "ROU": {
-      "country": "Romania",
+      "Country": "Romania",
       "fillKey": 40,
-      "Mentioned": "42.2",
-      "Not mentioned": "57.8"
+      "Yes": 42.2,
+      "No": 57.8
    },
    "RUS": {
-      "country": "Russia",
+      "Country": "Russia",
       "fillKey": 40,
-      "Mentioned": "37.8",
-      "Not mentioned": "61.7"
+      "Yes": 37.8,
+      "No": 61.7
    },
    "RWA": {
-      "country": "Rwanda",
+      "Country": "Rwanda",
       "fillKey": 30,
-      "Mentioned": "30.3",
-      "Not mentioned": "69.7"
+      "Yes": 30.3,
+      "No": 69.7
    },
    "SGP": {
-      "country": "Singapore",
+      "Country": "Singapore",
       "fillKey": 70,
-      "Mentioned": "72.1",
-      "Not mentioned": "27.9"
+      "Yes": 72.1,
+      "No": 27.9
    },
    "SVN": {
-      "country": "Slovenia",
+      "Country": "Slovenia",
       "fillKey": 90,
-      "Mentioned": "88",
-      "Not mentioned": "12"
+      "Yes": 88,
+      "No": 12
    },
    "ZAF": {
-      "country": "South Africa",
+      "Country": "South Africa",
       "fillKey": 60,
-      "Mentioned": "63.5",
-      "Not mentioned": "36.5"
+      "Yes": 63.5,
+      "No": 36.5
    },
    "ZWE": {
-      "country": "Zimbabwe",
+      "Country": "Zimbabwe",
       "fillKey": 40,
-      "Mentioned": "39.1",
-      "Not mentioned": "60.9"
+      "Yes": 39.1,
+      "No": 60.9
    },
    "ESP": {
-      "country": "Spain",
+      "Country": "Spain",
       "fillKey": 40,
-      "Mentioned": "43.1",
-      "Not mentioned": "56.9"
+      "Yes": 43.1,
+      "No": 56.9
    },
    "SWE": {
-      "country": "Sweden",
+      "Country": "Sweden",
       "fillKey": 70,
-      "Mentioned": "70.3",
-      "Not mentioned": "29.7"
+      "Yes": 70.3,
+      "No": 29.7
    },
    "THA": {
-      "country": "Thailand",
+      "Country": "Thailand",
       "fillKey": 40,
-      "Mentioned": "35.9",
-      "Not mentioned": "64.1"
+      "Yes": 35.9,
+      "No": 64.1
    },
    "TTO": {
-      "country": "Trinidad and Tobago",
+      "Country": "Trinidad and Tobago",
       "fillKey": 60,
-      "Mentioned": "58.6",
-      "Not mentioned": "41.4"
+      "Yes": 58.6,
+      "No": 41.4
    },
    "TUN": {
-      "country": "Tunisia",
+      "Country": "Tunisia",
       "fillKey": 60,
-      "Mentioned": "55.1",
-      "Not mentioned": "44.9"
+      "Yes": 55.1,
+      "No": 44.9
    },
    "TUR": {
-      "country": "Turkey",
+      "Country": "Turkey",
       "fillKey": 40,
-      "Mentioned": "35",
-      "Not mentioned": "65"
+      "Yes": 35,
+      "No": 65
    },
    "UKR": {
-      "country": "Ukraine",
+      "Country": "Ukraine",
       "fillKey": 40,
-      "Mentioned": "42.8",
-      "Not mentioned": "57.2"
+      "Yes": 42.8,
+      "No": 57.2
    },
    "EGY": {
-      "country": "Egypt",
+      "Country": "Egypt",
       "fillKey": 80,
-      "Mentioned": "80.2",
-      "Not mentioned": "19.8"
+      "Yes": 80.2,
+      "No": 19.8
    },
    "USA": {
-      "country": "United States",
+      "Country": "United States",
       "fillKey": 50,
-      "Mentioned": "53.6",
-      "Not mentioned": "46.4"
+      "Yes": 53.6,
+      "No": 46.4
    },
    "URY": {
-      "country": "Uruguay",
+      "Country": "Uruguay",
       "fillKey": 50,
-      "Mentioned": "48.2",
-      "Not mentioned": "51.8"
+      "Yes": 48.2,
+      "No": 51.8
    },
    "UZB": {
-      "country": "Uzbekistan",
+      "Country": "Uzbekistan",
       "fillKey": 60,
-      "Mentioned": "57.6",
-      "Not mentioned": "42.4"
+      "Yes": 57.6,
+      "No": 42.4
    },
    "YEM": {
-      "country": "Yemen",
+      "Country": "Yemen",
       "fillKey": 30,
-      "Mentioned": "30.6",
-      "Not mentioned": "69.4"
+      "Yes": 30.6,
+      "No": 69.4
    },
    "Tot": {
-      "country": "Total",
+      "Country": "Total",
       "fillKey": 50,
-      "Mentioned": "51.5",
-      "Not mentioned": "48.5"
+      "Yes": 51.5,
+      "No": 48.5
    }
 }
