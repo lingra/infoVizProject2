@@ -403,6 +403,7 @@
                                   updateData(opt1);
                                   changeLabel(document.getElementById('buttonDeterm').value);
                                   showAverage(opt1, waveData);
+                                  sortJson(opt1, waveData);
                               } catch (error){
                                   console.log("error");
                           }
@@ -419,6 +420,7 @@
                                   updateData(opt2);
                                   changeLabel(document.getElementById('buttonRespons').value);
                                   showAverage(opt2, waveData);
+                                  sortJson(opt2, waveData);
                               } catch (error) {
                                   console.log("error");
                               }
@@ -434,6 +436,7 @@
                               updateData(opt3);
                               changeLabel(document.getElementById('buttonHardWork').value);
                               showAverage(opt3, waveData); 
+                              sortJson(opt3, waveData);
                               
                           }
                       } , false);
@@ -446,6 +449,7 @@
                               updateData(opt4);
                               changeLabel(document.getElementById('buttonImagin').value);
                               showAverage(opt4, waveData); 
+                              sortJson(opt4, waveData);
                               
                           }
                       } , false);
@@ -458,6 +462,7 @@
                               updateData(opt5);
                               changeLabel(document.getElementById('buttonIndepen').value);
                               showAverage(opt5, waveData); 
+                              sortJson(opt5, waveData);
                               
                           }
                       } , false);
@@ -470,6 +475,7 @@
                               updateData(opt6);
                               changeLabel(document.getElementById('buttonObedien').value);
                               showAverage(opt6, waveData);
+                              sortJson(opt6, waveData);
                               
                           }
                       } , false);
@@ -482,6 +488,7 @@
                               updateData(opt7);
                               changeLabel(document.getElementById('buttonReligios').value);
                               showAverage(opt7, waveData);
+                              sortJson(opt7, waveData);
                               
                           }
                       }, false);
@@ -496,6 +503,7 @@
                                   document.getElementById("buttonSelfEx").disabled = true;
                               changeLabel(document.getElementById('buttonSelfEx').value);
                               showAverage(opt8, waveData);
+                              sortJson(opt8, waveData);
                               
                           }
                       } , false);
@@ -508,6 +516,7 @@
                               updateData(opt9);
                               changeLabel(document.getElementById('buttonThrift').value);
                               showAverage(opt9, waveData);
+                              sortJson(opt9, waveData);
                               
                           }
                       } , false);
@@ -520,6 +529,7 @@
                               updateData(opt10);
                               changeLabel(document.getElementById('buttonToleranc').value);
                               showAverage(opt10, waveData);
+                              sortJson(opt10, waveData);
                               
                           }
                       } , false);
@@ -552,65 +562,64 @@
                           });
                       };
                       
-                      function selectionSortYes(arr) {
-                          var minIdx, temp, 
-                              len = Object.keys(arr).length;
-                          
-                          for(var i in arr){
-                              minIdx = i;
-                              for(var j in arr){
-                                  if(arr[j].Yes < arr[minIdx].Yes){
-                                      minIdx = j;
-                                  }
-                              }
-                              temp = arr[i].Yes;
-                              arr[i].Yes = arr[minIdx].Yes;
-                              arr[minIdx].Yes = temp;
-                          }
-                          return arr;
-                      };
-                      function selectionSortNo(arr) {
-                          var minIdx, temp, 
-                              len = Object.keys(arr).length;
-                          
-                          for(var i in arr){
-                              minIdx = i;
-                              for(var j in arr){
-                                  if(arr[j].No < arr[minIdx].No){
-                                      minIdx = j;
-                                  }
-                              }
-                              temp = arr[i].No;
-                              arr[i].No = arr[minIdx].No;
-                              arr[minIdx].No = temp;
-                          }
-                          return arr;
-                      };
-   
-                      
+                      ///////////// TOP LIST
                       var sortJson = function(file, wave) {
                           d3.json(file, function (data){
                               var tmpDic = JSON.parse(JSON.stringify(data));
-
-                              var sorttmpDicYes = selectionSortYes(tmpDic);
-                              console.log(sorttmpDicYes);
+                              len = Object.keys(tmpDic).length;
                               
                               var lab = document.getElementById("topList");
                               lab.innerHTML = "<strong>Top 5:</strong>";
                               
-                              for (var i = 0 ; i < 5 ; i++){
-                                  console.log(sorttmpDicYes[i]);
-                                  lab.innerHTML += "<p>" + tmpDic[i].country + ": " + tmpDic[i].Yes + "%" ; 
-                              };
+                              var tmpArr = [];
                               
-                              var sorttmpDicNo = selectionSortNo(tmpDic);
+                              for (var j = 0 ; j < 5 ; j++) {
+                                  var tmpVar;
+                                  for (var i in tmpDic) {
+                                      
+                                      if (tmpVar == undefined || tmpVar == "" || tmpVar.Yes < tmpDic[i].Yes) {
+                                          
+                                          if (tmpDic[i] != tmpVar) {
+                                              
+                                              if (tmpArr.includes(tmpDic[i])){
+                                                  continue;
+                                              } else {
+                                                  //tmpArr.push(tmpDic[i].country);
+                                                  tmpVar = tmpDic[i];
+                                              }
+                                          }
+                                      }
+                                  };
+                                  tmpArr.push(tmpVar);
+                                  lab.innerHTML += "<p>" + tmpVar.country + ": " + tmpVar.Yes + "%" ; 
+                                  tmpVar = "";
+                              }
                               
-                              for (var i = 0 ; i < 5 ; i++){
-
-                                  lab.innerHTML += "<p>" + i+1 + ". " + tmpDic[i].country + ": " + tmpDic[i].No + "%" ; 
-                              };
+                              lab.innerHTML += "<strong>Bottom 5:</strong>";
+                              
+                              for (var j = 0 ; j < 5 ; j++) {
+                                  var tmpVar;
+                                  for (var i in tmpDic) {
+                                      
+                                      if (tmpVar == undefined || tmpVar == "" || tmpVar.No > tmpDic[i].No) {
+                                          
+                                          if (tmpDic[i] != tmpVar) {
+                                              
+                                              if (tmpArr.includes(tmpDic[i])){
+                                                  continue;
+                                              } else {
+                                                  //tmpArr.push(tmpDic[i].country);
+                                                  tmpVar = tmpDic[i];
+                                              }
+                                          }
+                                      }
+                                  };
+                                  tmpArr.push(tmpVar);
+                                  lab.innerHTML += "<p>" + tmpVar.country + ": " + tmpVar.No + "%" ; 
+                                  tmpVar = "";
+                              }
                           })
-                      }
+                      };
                       
                       
                   </script>
