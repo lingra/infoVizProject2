@@ -116,449 +116,457 @@
 
       <div class="row">
           <div class="col-sm-1"></div>
-          <div class="col-sm-6"> 
-              <div id="world-map">          
-                  <script type="text/javascript">
-                      
-                      var possibleWaves = ["1995-1999","2000-2004","2005-2009","2010-2014"];
-                      var waveData = "";
-                      var headline = "Children Qualities in ";
-                      
-                      
-                      //////// GET RIGHT WAVE + UPDATE HEADER
-                      var getWave = function(button) {
-                          var but = document.getElementById(button);
-                          waveData = but.value;
-                          console.log(but.value);
-                          
-                          var headText = document.getElementById('welcomeText');
-                          headText.innerHTML = '';
-                          headText.innerHTML += "Children Qualities in: " + waveData;
+          <div class="col-sm-6">
+              <div class="mapDiv">
+                  <div id="world-map">          
+                      <script type="text/javascript">
+
+                          var possibleWaves = ["1995-1999","2000-2004","2005-2009","2010-2014"];
+                          var waveData = "";
+                          var headline = "Children Qualities in ";
+                          var worldMap;
+
+
+                          //////// GET RIGHT WAVE + UPDATE HEADER
+                          var getWave = function(button) {
+                              var but = document.getElementById(button);
+                              waveData = but.value;
+                              console.log(but.value);
+
+                              var headText = document.getElementById('welcomeText');
+                              headText.innerHTML = '';
+                              headText.innerHTML += "Children Qualities in: " + waveData;
+                              };
+
+
+                          var countries = ["DZA", "AZE", "ARG", "AUS", "ARM", "BRA", "BLR", "CHL", "CHN", "TWN", "COL", "CYP", "ECU", "EST", "GEO", "PSE", "DEU", "GHA", "HTI", "HKG", "IND", "IRQ", "JPN", "KAZ", "JOR", "KOR", "KWT", "KGZ", "LBN", "LBY", "MYS", "MEX", "MAR", "NLD", "NZL", "NGA", "PAK", "PER", "PHL", "POL", "QAT", "ROU", "RUS", "RWA", "SGP", "SVN", "ZAF", "ZWE", "ESP", "SWE", "THA", "TTO", "TUN", "TUR", "UKR", "EGY", "USA", "URY", "UZB", "YEM"];
+
+
+                          /// FILE PATHES BASED ON WAVES
+                          var opt1 = "./Data/" + waveData + "/ChildQual_DeterminationPerseverance.json";
+                          var opt2 = "./Data/" + waveData + "/ChildQual_FeelingOfResponsibility.json";
+                          var opt3 = "./Data/" + waveData + "/ChildQual_HardWork.json";
+                          var opt4 = "./Data/" + waveData + "/ChildQual_Imagination.json";
+                          var opt5 = "./Data/" + waveData + "/ChildQual_Independence.json";
+                          var opt6 = "./Data/" + waveData + "/ChildQual_Obedience.json";
+                          var opt7 = "./Data/" + waveData + "/ChildQual_ReligiousFaith.json";
+                          var opt8 = "./Data/" + waveData + "/ChildQual_SelfExpression.json";
+                          var opt9 = "./Data/" + waveData + "/ChildQual_ThriftSavingMoneyAndThings.json";
+                          var opt10 = "./Data/" + waveData + "/ChildQual_ToleranceAndRespectForOtherPeople.json";
+                          var opt11 = "./Data/" + waveData + "/ChildQual_Unselfishness.json";
+
+
+                          //// DefaultData - Should be neutral
+                          var defaultData = {
+                              DZA: {fillKey: 'defaultFill'},
+                              AZE: {fillKey: 'defaultFill'},
+                              ARG: {fillKey: 'defaultFill'},
+                              AUS: {fillKey: 'defaultFill'},
+                              ARM: {fillKey: 'defaultFill'},
+                              AND: {fillKey: 'defaultFill'},
+                              BRA: {fillKey: 'defaultFill'},
+                              BLR: {fillKey: 'defaultFill'},
+                              CAN: {fillKey: 'defaultFill'},
+                              CHL: {fillKey: 'defaultFill'},
+                              CHN: {fillKey: 'defaultFill'},
+                              TWN: {fillKey: 'defaultFill'},
+                              COL: {fillKey: 'defaultFill'},
+                              CYP: {fillKey: 'defaultFill'},
+                              ECU: {fillKey: 'defaultFill'},
+                              EST: {fillKey: 'defaultFill'},
+                              FIN: {fillKey: 'defaultFill'},
+                              FRA: {fillKey: 'defaultFill'},
+                              GEO: {fillKey: 'defaultFill'},
+                              PSE: {fillKey: 'defaultFill'},
+                              DEU: {fillKey: 'defaultFill'},
+                              GHA: {fillKey: 'defaultFill'},
+                              HTI: {fillKey: 'defaultFill'},
+                              HKG: {fillKey: 'defaultFill'},
+                              IND: {fillKey: 'defaultFill'},
+                              IRQ: {fillKey: 'defaultFill'},
+                              JPN: {fillKey: 'defaultFill'},
+                              KAZ: {fillKey: 'defaultFill'},
+                              JOR: {fillKey: 'defaultFill'},
+                              KOR: {fillKey: 'defaultFill'},
+                              KWT: {fillKey: 'defaultFill'},
+                              KGZ: {fillKey: 'defaultFill'},
+                              LBN: {fillKey: 'defaultFill'},
+                              LBY: {fillKey: 'defaultFill'},
+                              MYS: {fillKey: 'defaultFill'},
+                              MEX: {fillKey: 'defaultFill'},
+                              MAR: {fillKey: 'defaultFill'},
+                              NLD: {fillKey: 'defaultFill'},
+                              NZL: {fillKey: 'defaultFill'},
+                              NGA: {fillKey: 'defaultFill'},
+                              NOR: {fillKey: 'defaultFill'},
+                              PAK: {fillKey: 'defaultFill'},
+                              PER: {fillKey: 'defaultFill'},
+                              PHL: {fillKey: 'defaultFill'},
+                              POL: {fillKey: 'defaultFill'},
+                              QUA: {fillKey: 'defaultFill'},
+                              ROU: {fillKey: 'defaultFill'},
+                              RUS: {fillKey: 'defaultFill'},
+                              RWA: {fillKey: 'defaultFill'},
+                              SGP: {fillKey: 'defaultFill'},
+                              SVN: {fillKey: 'defaultFill'},
+                              ZAF: {fillKey: 'defaultFill'},
+                              ZWE: {fillKey: 'defaultFill'},
+                              ESP: {fillKey: 'defaultFill'},
+                              SWE: {fillKey: 'defaultFill'},
+                              THA: {fillKey: 'defaultFill'},
+                              TTO: {fillKey: 'defaultFill'},
+                              TUN: {fillKey: 'defaultFill'},
+                              TUR: {fillKey: 'defaultFill'},
+                              UKR: {fillKey: 'defaultFill'},
+                              EGY: {fillKey: 'defaultFill'},
+                              USA: {fillKey: 'defaultFill'},
+                              URY: {fillKey: 'defaultFill'},
+                              UZB: {fillKey: 'defaultFill'},
+                              YEM: {fillKey: 'defaultFill'}
                           };
-                      
-                      
-                      var countries = ["DZA", "AZE", "ARG", "AUS", "ARM", "BRA", "BLR", "CHL", "CHN", "TWN", "COL", "CYP", "ECU", "EST", "GEO", "PSE", "DEU", "GHA", "HTI", "HKG", "IND", "IRQ", "JPN", "KAZ", "JOR", "KOR", "KWT", "KGZ", "LBN", "LBY", "MYS", "MEX", "MAR", "NLD", "NZL", "NGA", "PAK", "PER", "PHL", "POL", "QAT", "ROU", "RUS", "RWA", "SGP", "SVN", "ZAF", "ZWE", "ESP", "SWE", "THA", "TTO", "TUN", "TUR", "UKR", "EGY", "USA", "URY", "UZB", "YEM"];
-                      
-                      
-                      /// FILE PATHES BASED ON WAVES
-                      var opt1 = "./Data/" + waveData + "/ChildQual_DeterminationPerseverance.json";
-                      var opt2 = "./Data/" + waveData + "/ChildQual_FeelingOfResponsibility.json";
-                      var opt3 = "./Data/" + waveData + "/ChildQual_HardWork.json";
-                      var opt4 = "./Data/" + waveData + "/ChildQual_Imagination.json";
-                      var opt5 = "./Data/" + waveData + "/ChildQual_Independence.json";
-                      var opt6 = "./Data/" + waveData + "/ChildQual_Obedience.json";
-                      var opt7 = "./Data/" + waveData + "/ChildQual_ReligiousFaith.json";
-                      var opt8 = "./Data/" + waveData + "/ChildQual_SelfExpression.json";
-                      var opt9 = "./Data/" + waveData + "/ChildQual_ThriftSavingMoneyAndThings.json";
-                      var opt10 = "./Data/" + waveData + "/ChildQual_ToleranceAndRespectForOtherPeople.json";
-                      var opt11 = "./Data/" + waveData + "/ChildQual_Unselfishness.json";
-                      
-                      
-                      //// DefaultData - Should be neutral
-                      var defaultData = {
-                          DZA: {fillKey: 'defaultFill'},
-                          AZE: {fillKey: 'defaultFill'},
-                          ARG: {fillKey: 'defaultFill'},
-                          AUS: {fillKey: 'defaultFill'},
-                          ARM: {fillKey: 'defaultFill'},
-                          AND: {fillKey: 'defaultFill'},
-                          BRA: {fillKey: 'defaultFill'},
-                          BLR: {fillKey: 'defaultFill'},
-                          CAN: {fillKey: 'defaultFill'},
-                          CHL: {fillKey: 'defaultFill'},
-                          CHN: {fillKey: 'defaultFill'},
-                          TWN: {fillKey: 'defaultFill'},
-                          COL: {fillKey: 'defaultFill'},
-                          CYP: {fillKey: 'defaultFill'},
-                          ECU: {fillKey: 'defaultFill'},
-                          EST: {fillKey: 'defaultFill'},
-                          FIN: {fillKey: 'defaultFill'},
-                          FRA: {fillKey: 'defaultFill'},
-                          GEO: {fillKey: 'defaultFill'},
-                          PSE: {fillKey: 'defaultFill'},
-                          DEU: {fillKey: 'defaultFill'},
-                          GHA: {fillKey: 'defaultFill'},
-                          HTI: {fillKey: 'defaultFill'},
-                          HKG: {fillKey: 'defaultFill'},
-                          IND: {fillKey: 'defaultFill'},
-                          IRQ: {fillKey: 'defaultFill'},
-                          JPN: {fillKey: 'defaultFill'},
-                          KAZ: {fillKey: 'defaultFill'},
-                          JOR: {fillKey: 'defaultFill'},
-                          KOR: {fillKey: 'defaultFill'},
-                          KWT: {fillKey: 'defaultFill'},
-                          KGZ: {fillKey: 'defaultFill'},
-                          LBN: {fillKey: 'defaultFill'},
-                          LBY: {fillKey: 'defaultFill'},
-                          MYS: {fillKey: 'defaultFill'},
-                          MEX: {fillKey: 'defaultFill'},
-                          MAR: {fillKey: 'defaultFill'},
-                          NLD: {fillKey: 'defaultFill'},
-                          NZL: {fillKey: 'defaultFill'},
-                          NGA: {fillKey: 'defaultFill'},
-                          NOR: {fillKey: 'defaultFill'},
-                          PAK: {fillKey: 'defaultFill'},
-                          PER: {fillKey: 'defaultFill'},
-                          PHL: {fillKey: 'defaultFill'},
-                          POL: {fillKey: 'defaultFill'},
-                          QUA: {fillKey: 'defaultFill'},
-                          ROU: {fillKey: 'defaultFill'},
-                          RUS: {fillKey: 'defaultFill'},
-                          RWA: {fillKey: 'defaultFill'},
-                          SGP: {fillKey: 'defaultFill'},
-                          SVN: {fillKey: 'defaultFill'},
-                          ZAF: {fillKey: 'defaultFill'},
-                          ZWE: {fillKey: 'defaultFill'},
-                          ESP: {fillKey: 'defaultFill'},
-                          SWE: {fillKey: 'defaultFill'},
-                          THA: {fillKey: 'defaultFill'},
-                          TTO: {fillKey: 'defaultFill'},
-                          TUN: {fillKey: 'defaultFill'},
-                          TUR: {fillKey: 'defaultFill'},
-                          UKR: {fillKey: 'defaultFill'},
-                          EGY: {fillKey: 'defaultFill'},
-                          USA: {fillKey: 'defaultFill'},
-                          URY: {fillKey: 'defaultFill'},
-                          UZB: {fillKey: 'defaultFill'},
-                          YEM: {fillKey: 'defaultFill'}
-                      };
-                      
-                      var defaultDataOriginal = JSON.parse(JSON.stringify(defaultData));
-                      var defaultDataEmpty = {};
-                      
-                      
-                      /////// UPDATE DATA TO MAP
-                      var updateData = function (file) {
-                          //try {
-                              d3.json(file, function (data) {
 
-                                  /// Nollställ kartan
-                                  worldMap.updateChoropleth(defaultDataOriginal);
+                          var defaultDataOriginal = JSON.parse(JSON.stringify(defaultData));
+                          var defaultDataEmpty = {};
 
-                                  /// Nya färger
+
+                          /////// UPDATE DATA TO MAP
+                          var updateData = function (file) {
+                              //try {
+                                  d3.json(file, function (data) {
+
+                                      /// Nollställ kartan
+                                      worldMap.updateChoropleth(defaultDataOriginal);
+
+                                      /// Nya färger
+                                      worldMap.updateChoropleth(data);
+                                  })
+                                  return '';
+                              //} catch(err) {
+                                  return "error";
+                              //}
+                          };
+
+
+                          //////// CHANGE LABEL 
+                          var changeLabel = function(info) {
+                              var lab = document.getElementById("detailInfo");
+
+                              lab.innerHTML = "";
+                              lab.innerHTML += "<p><strong>Wave: </strong>" + waveData + "</p>" ; 
+                              lab.innerHTML += "<p><strong>Information about: </strong>" + info + "</p>";
+                          };
+
+
+                          var createWorldMap = function() {
+                              ///////// CREATE MAP
+                              worldMap = new Datamap({
+                                  element: document.getElementById("world-map"),
+                                  scope: "world",
+                                  projection: 'mercator',
+                                  fills: {
+                                      0: '#FFFA90',
+                                      10: '#EEE184',
+                                      20: '#DDC878',
+                                      30: '#CDAF6C',
+                                      40: '#BC9660',
+                                      50: '#AC7D55',
+                                      60: '#9B6449',
+                                      70: '#8A4B3D',
+                                      80: '#7A3131',
+                                      90: '#691825',
+                                      100: '#691825',
+                                      defaultFill: 'lightgrey'
+                                  },
+                                  data: {},
+                                  geographyConfig: {
+                                      highlightOnHover: true,
+                                      //highlightFillColor: 'darkred',
+                                      popupOnHover: true,     // landet
+                                      //highlightBorderColor: 'darkgrey',
+                                      popupTemplate: function(geo, data) {
+                                          var div = document.getElementById('countryDetail');
+                                          div.innerHTML = '';
+                                          if (!data){
+                                              this.highlightFillColor = 'lightgrey';
+                                              this.highlightBorderWidth = 0;
+                                              //this.highlightBorderColor = 'lightgrey';
+                                              return '';
+                                          } else {
+                                              this.highlightFillColor = 'darkred';
+                                              var div = document.getElementById('countryDetail');
+                                              div.innerHTML = '';
+                                              div.innerHTML += "<strong>" + data.country + "</strong><br> Important: " + data.Yes + "%<br>Not so important: " + data.No + "%";
+                                              return "<div class='hoverinfo'>"+ data.country +"<br><strong>Yes: </strong>" + data.Yes + "%</div>";
+                                          }
+                                      }
+                                  }
+                              });
+                          }
+
+
+                          createWorldMap();
+                          //////////BUTTONS/////////////
+
+                          ////// WAVE BUTTONS              
+                          document.getElementById('buttonFirst').addEventListener('click', function(e) { getWave("buttonFirst") } , false);
+
+                          document.getElementById('buttonSecond').addEventListener('click', function(e){getWave("buttonSecond")} , false);
+
+                          document.getElementById('buttonThird').addEventListener('click', function(e){getWave("buttonThird")} , false);
+
+                          document.getElementById('buttonForth').addEventListener('click', function(e){getWave("buttonForth")} , false);
+
+
+                          ///// RESET
+                          document.getElementById('buttonReset').addEventListener('click', function(e) {
+                              createWorldMap();
+                              /*
+                              //worldMap.updateChoropleth(null, {reset: true});
+                              worldMap.updateChoropleth(defaultDataOriginal);
+                              d3.json("./Data/resetValues.json", function (data) {
                                   worldMap.updateChoropleth(data);
+                              });
+
+                              var div = document.getElementById('countryDetail');
+                              div.innerHTML = '';
+                              div.innerHTML += 'Reseted data';
+
+                              var lab = document.getElementById("countryDetail");
+                              lab.innerHTML = "Reset data";*/
+                          } , false);
+
+
+                          ///// OTHERS
+                          document.getElementById('buttonDeterm').addEventListener('click', function(e){ 
+                              if (!waveData){
+                              } else {
+                                  try {
+                                      opt1 = "./Data/" + waveData + "/ChildQual_DeterminationPerseverance.json";
+                                      updateData(opt1);
+                                      changeLabel(document.getElementById('buttonDeterm').value);
+                                      showAverage(opt1, waveData);
+                                      sortJson(opt1, waveData);
+                                  } catch (error){
+                                      console.log("error");
+                              }
+
+                              }
+                          } , false);
+
+
+                          document.getElementById("buttonRespons").addEventListener('click', function(e){ 
+                              if (!waveData){
+                              } else {
+                                  try {
+                                      opt2 = "./Data/" + waveData + "/ChildQual_FeelingOfResponsibility.json";
+                                      updateData(opt2);
+                                      changeLabel(document.getElementById('buttonRespons').value);
+                                      showAverage(opt2, waveData);
+                                      sortJson(opt2, waveData);
+                                  } catch (error) {
+                                      console.log("error");
+                                  }
+
+                              }
+                          } , false);
+
+
+                          document.getElementById("buttonHardWork").addEventListener('click', function(e){ 
+                              if (!waveData){
+                              } else {
+                                  opt3 = "./Data/" + waveData + "/ChildQual_HardWork.json";
+                                  updateData(opt3);
+                                  changeLabel(document.getElementById('buttonHardWork').value);
+                                  showAverage(opt3, waveData); 
+                                  sortJson(opt3, waveData);
+
+                              }
+                          } , false);
+
+
+                          document.getElementById("buttonImagin").addEventListener('click', function(e) { 
+                              if (!waveData){
+                              } else {
+                                  opt4 = "./Data/" + waveData + "/ChildQual_Imagination.json";
+                                  updateData(opt4);
+                                  changeLabel(document.getElementById('buttonImagin').value);
+                                  showAverage(opt4, waveData); 
+                                  sortJson(opt4, waveData);
+
+                              }
+                          } , false);
+
+
+                          document.getElementById("buttonIndepen").addEventListener('click', function(e) { 
+                              if (!waveData){
+                              } else {
+                                  opt5 = "./Data/" + waveData + "/ChildQual_Independence.json";
+                                  updateData(opt5);
+                                  changeLabel(document.getElementById('buttonIndepen').value);
+                                  showAverage(opt5, waveData); 
+                                  sortJson(opt5, waveData);
+
+                              }
+                          } , false);
+
+
+                          document.getElementById("buttonObedien").addEventListener('click', function(e) { 
+                              if (!waveData){
+                              } else {
+                                  opt6 = "./Data/" + waveData + "/ChildQual_Obedience.json";
+                                  updateData(opt6);
+                                  changeLabel(document.getElementById('buttonObedien').value);
+                                  showAverage(opt6, waveData);
+                                  sortJson(opt6, waveData);
+
+                              }
+                          } , false);
+
+
+                          document.getElementById("buttonReligios").addEventListener('click', function(e) { 
+                              if (!waveData){
+                              } else {
+                                  opt7 = "./Data/" + waveData + "/ChildQual_ReligiousFaith.json";
+                                  updateData(opt7);
+                                  changeLabel(document.getElementById('buttonReligios').value);
+                                  showAverage(opt7, waveData);
+                                  sortJson(opt7, waveData);
+
+                              }
+                          }, false);
+
+
+                          document.getElementById("buttonSelfEx").addEventListener('click', function(e) {
+                              if (!waveData){
+                              } else {
+                                  opt8 = "./Data/" + waveData + "/ChildQual_SelfExpression.json";
+                                  testerr = updateData(opt8);
+                                  if (testerr == "error")
+                                      document.getElementById("buttonSelfEx").disabled = true;
+                                  changeLabel(document.getElementById('buttonSelfEx').value);
+                                  showAverage(opt8, waveData);
+                                  sortJson(opt8, waveData);
+
+                              }
+                          } , false);
+
+
+                          document.getElementById("buttonThrift").addEventListener('click', function(e) {
+                              if (!waveData){
+                              } else {
+                                  opt9 = "./Data/" + waveData + "/ChildQual_ThriftSavingMoneyAndThings.json";
+                                  updateData(opt9);
+                                  changeLabel(document.getElementById('buttonThrift').value);
+                                  showAverage(opt9, waveData);
+                                  sortJson(opt9, waveData);
+
+                              }
+                          } , false);
+
+
+                          document.getElementById("buttonToleranc").addEventListener('click', function(e) { 
+                              if (!waveData){
+                              } else {
+                                  opt10 = "./Data/" + waveData + "/ChildQual_ToleranceAndRespectForOtherPeople.json";
+                                  updateData(opt10);
+                                  changeLabel(document.getElementById('buttonToleranc').value);
+                                  showAverage(opt10, waveData);
+                                  sortJson(opt10, waveData);
+
+                              }
+                          } , false);
+
+
+                          document.getElementById("buttonUnself").addEventListener('click', function(e) { 
+                              if (!waveData){
+                              } else {
+                                  opt11 = "./Data/" + waveData + "/ChildQual_Unselfishness.json";
+                                  updateData(opt11); 
+                                  changeLabel(document.getElementById('buttonUnself').value);
+                                  showAverage(opt11, waveData);
+                                  sortJson(opt11, waveData);
+
+                              }
+                          } , false);
+
+
+                          /////////// SHOW AVERAGE
+                          var showAverage = function(file, wave) {
+                              d3.json(file, function (data) {
+                                  var tmpDic = JSON.parse(JSON.stringify(data));
+                                  for (var i in tmpDic) {
+                                      if (tmpDic[i].country == "Total"){
+                                          var lab = document.getElementById("totalAverage");
+                                          lab.innerHTML = "";
+                                          lab.innerHTML += "<p><strong>Average on the globe:</p></strong><p>Important: " + tmpDic[i].Yes + "%</p><p>Not important: " + tmpDic[i].No + "%" ; 
+                                      }
+                                  }
+                              });
+                          };
+
+                          ///////////// TOP LIST
+                          var sortJson = function(file, wave) {
+                              d3.json(file, function (data){
+                                  var tmpDic = JSON.parse(JSON.stringify(data));
+                                  len = Object.keys(tmpDic).length;
+
+                                  var labYes = document.getElementById("topListYes");
+                                  labYes.innerHTML = "<strong>Top 5:</strong>";
+
+                                  var tmpArr = [];
+
+                                  for (var j = 0 ; j < 5 ; j++) {
+                                      var tmpVar;
+                                      for (var i in tmpDic) {
+
+                                          if (tmpVar == undefined || tmpVar == "" || tmpVar.Yes < tmpDic[i].Yes) {
+
+                                              if (tmpDic[i] != tmpVar) {
+
+                                                  if (tmpArr.includes(tmpDic[i])){
+                                                      continue;
+                                                  } else {
+                                                      //tmpArr.push(tmpDic[i].country);
+                                                      tmpVar = tmpDic[i];
+                                                  }
+                                              }
+                                          }
+                                      };
+                                      tmpArr.push(tmpVar);
+                                      labYes.innerHTML += "<p>" + tmpVar.country + ": " + tmpVar.Yes + "%" ; 
+                                      tmpVar = "";
+                                  }
+
+                                  var labNo = document.getElementById("topListNo");
+                                  labNo.innerHTML = "<strong>Bottom 5:</strong>";
+
+                                  for (var j = 0 ; j < 5 ; j++) {
+                                      var tmpVar;
+                                      for (var i in tmpDic) {
+
+                                          if (tmpVar == undefined || tmpVar == "" || tmpVar.No > tmpDic[i].No) {
+
+                                              if (tmpDic[i] != tmpVar) {
+
+                                                  if (tmpArr.includes(tmpDic[i])){
+                                                      continue;
+                                                  } else {
+                                                      //tmpArr.push(tmpDic[i].country);
+                                                      tmpVar = tmpDic[i];
+                                                  }
+                                              }
+                                          }
+                                      };
+                                      tmpArr.push(tmpVar);
+                                      labNo.innerHTML += "<p>" + tmpVar.country + ": " + tmpVar.No + "%" ; 
+                                      tmpVar = "";
+                                  }
                               })
-                              return '';
-                          //} catch(err) {
-                              return "error";
-                          //}
-                      };
-                      
-                      
-                      //////// CHANGE LABEL 
-                      var changeLabel = function(info) {
-                          var lab = document.getElementById("detailInfo");
-                          
-                          lab.innerHTML = "";
-                          lab.innerHTML += "<p><strong>Wave: </strong>" + waveData + "</p>" ; 
-                          lab.innerHTML += "<p><strong>Information about: </strong>" + info + "</p>";
-                      };
-                      
-                      
-                      ///////// CREATE MAP
-                      var worldMap = new Datamap({
-                          element: document.getElementById("world-map"),
-                          scope: "world",
-                          projection: 'mercator',
-                          fills: {
-                              0: '#FFFA90',
-                              10: '#EEE184',
-                              20: '#DDC878',
-                              30: '#CDAF6C',
-                              40: '#BC9660',
-                              50: '#AC7D55',
-                              60: '#9B6449',
-                              70: '#8A4B3D',
-                              80: '#7A3131',
-                              90: '#691825',
-                              100: '#691825',
-                              defaultFill: 'lightgrey'
-                          },
-                          data: {},
-                          geographyConfig: {
-                              highlightOnHover: true,
-                              //highlightFillColor: 'darkred',
-                              popupOnHover: true,     // landet
-                              //highlightBorderColor: 'darkgrey',
-                              popupTemplate: function(geo, data) {
-                                  var div = document.getElementById('countryDetail');
-                                  div.innerHTML = '';
-                                  if (!data){
-                                      this.highlightFillColor = 'lightgrey';
-                                      this.highlightBorderWidth = 0;
-                                      //this.highlightBorderColor = 'lightgrey';
-                                      return '';
-                                  } else {
-                                      this.highlightFillColor = 'darkred';
-                                      var div = document.getElementById('countryDetail');
-                                      div.innerHTML = '';
-                                      div.innerHTML += "<strong>" + data.country + "</strong><br> Important: " + data.Yes + "%<br>Not so important: " + data.No + "%";
-                                      return "<div class='hoverinfo'>"+ data.country +"<br><strong>Yes: </strong>" + data.Yes + "%</div>";
-                                  }
-                              }
-                          }
-                      });
-                      
-                      
-                      //////////BUTTONS/////////////
-                      
-                      ////// WAVE BUTTONS              
-                      document.getElementById('buttonFirst').addEventListener('click', function(e) { getWave("buttonFirst") } , false);
-                      
-                      document.getElementById('buttonSecond').addEventListener('click', function(e){getWave("buttonSecond")} , false);
-                      
-                      document.getElementById('buttonThird').addEventListener('click', function(e){getWave("buttonThird")} , false);
-                      
-                      document.getElementById('buttonForth').addEventListener('click', function(e){getWave("buttonForth")} , false);
-                      
-                      
-                      ///// RESET
-                      document.getElementById('buttonReset').addEventListener('click', function(e) {
-                          //worldMap.updateChoropleth(null, {reset: true});
-                          worldMap.updateChoropleth(defaultDataOriginal);
-                          d3.json("./Data/resetValues.json", function (data) {
-                              worldMap.updateChoropleth(data);
-                          });
-                          
-                          var div = document.getElementById('countryDetail');
-                          div.innerHTML = '';
-                          div.innerHTML += 'Reseted data';
-                          
-                          var lab = document.getElementById("countryDetail");
-                          lab.innerHTML = "Reset data";
-                      } , false);
-                      
-                      
-                      ///// OTHERS
-                      document.getElementById('buttonDeterm').addEventListener('click', function(e){ 
-                          if (!waveData){
-                          } else {
-                              try {
-                                  opt1 = "./Data/" + waveData + "/ChildQual_DeterminationPerseverance.json";
-                                  updateData(opt1);
-                                  changeLabel(document.getElementById('buttonDeterm').value);
-                                  showAverage(opt1, waveData);
-                                  sortJson(opt1, waveData);
-                              } catch (error){
-                                  console.log("error");
-                          }
-                              
-                          }
-                      } , false);
-                      
-                      
-                      document.getElementById("buttonRespons").addEventListener('click', function(e){ 
-                          if (!waveData){
-                          } else {
-                              try {
-                                  opt2 = "./Data/" + waveData + "/ChildQual_FeelingOfResponsibility.json";
-                                  updateData(opt2);
-                                  changeLabel(document.getElementById('buttonRespons').value);
-                                  showAverage(opt2, waveData);
-                                  sortJson(opt2, waveData);
-                              } catch (error) {
-                                  console.log("error");
-                              }
-                              
-                          }
-                      } , false);
-                      
-                      
-                      document.getElementById("buttonHardWork").addEventListener('click', function(e){ 
-                          if (!waveData){
-                          } else {
-                              opt3 = "./Data/" + waveData + "/ChildQual_HardWork.json";
-                              updateData(opt3);
-                              changeLabel(document.getElementById('buttonHardWork').value);
-                              showAverage(opt3, waveData); 
-                              sortJson(opt3, waveData);
-                              
-                          }
-                      } , false);
-                      
-                      
-                      document.getElementById("buttonImagin").addEventListener('click', function(e) { 
-                          if (!waveData){
-                          } else {
-                              opt4 = "./Data/" + waveData + "/ChildQual_Imagination.json";
-                              updateData(opt4);
-                              changeLabel(document.getElementById('buttonImagin').value);
-                              showAverage(opt4, waveData); 
-                              sortJson(opt4, waveData);
-                              
-                          }
-                      } , false);
-                      
-                      
-                      document.getElementById("buttonIndepen").addEventListener('click', function(e) { 
-                          if (!waveData){
-                          } else {
-                              opt5 = "./Data/" + waveData + "/ChildQual_Independence.json";
-                              updateData(opt5);
-                              changeLabel(document.getElementById('buttonIndepen').value);
-                              showAverage(opt5, waveData); 
-                              sortJson(opt5, waveData);
-                              
-                          }
-                      } , false);
-                      
-                      
-                      document.getElementById("buttonObedien").addEventListener('click', function(e) { 
-                          if (!waveData){
-                          } else {
-                              opt6 = "./Data/" + waveData + "/ChildQual_Obedience.json";
-                              updateData(opt6);
-                              changeLabel(document.getElementById('buttonObedien').value);
-                              showAverage(opt6, waveData);
-                              sortJson(opt6, waveData);
-                              
-                          }
-                      } , false);
-                      
-                      
-                      document.getElementById("buttonReligios").addEventListener('click', function(e) { 
-                          if (!waveData){
-                          } else {
-                              opt7 = "./Data/" + waveData + "/ChildQual_ReligiousFaith.json";
-                              updateData(opt7);
-                              changeLabel(document.getElementById('buttonReligios').value);
-                              showAverage(opt7, waveData);
-                              sortJson(opt7, waveData);
-                              
-                          }
-                      }, false);
-                      
-                      
-                      document.getElementById("buttonSelfEx").addEventListener('click', function(e) {
-                          if (!waveData){
-                          } else {
-                              opt8 = "./Data/" + waveData + "/ChildQual_SelfExpression.json";
-                              testerr = updateData(opt8);
-                              if (testerr == "error")
-                                  document.getElementById("buttonSelfEx").disabled = true;
-                              changeLabel(document.getElementById('buttonSelfEx').value);
-                              showAverage(opt8, waveData);
-                              sortJson(opt8, waveData);
-                              
-                          }
-                      } , false);
-                      
-                      
-                      document.getElementById("buttonThrift").addEventListener('click', function(e) {
-                          if (!waveData){
-                          } else {
-                              opt9 = "./Data/" + waveData + "/ChildQual_ThriftSavingMoneyAndThings.json";
-                              updateData(opt9);
-                              changeLabel(document.getElementById('buttonThrift').value);
-                              showAverage(opt9, waveData);
-                              sortJson(opt9, waveData);
-                              
-                          }
-                      } , false);
-                      
-                      
-                      document.getElementById("buttonToleranc").addEventListener('click', function(e) { 
-                          if (!waveData){
-                          } else {
-                              opt10 = "./Data/" + waveData + "/ChildQual_ToleranceAndRespectForOtherPeople.json";
-                              updateData(opt10);
-                              changeLabel(document.getElementById('buttonToleranc').value);
-                              showAverage(opt10, waveData);
-                              sortJson(opt10, waveData);
-                              
-                          }
-                      } , false);
-                      
-                      
-                      document.getElementById("buttonUnself").addEventListener('click', function(e) { 
-                          if (!waveData){
-                          } else {
-                              opt11 = "./Data/" + waveData + "/ChildQual_Unselfishness.json";
-                              updateData(opt11); 
-                              changeLabel(document.getElementById('buttonUnself').value);
-                              showAverage(opt11, waveData);
-                              sortJson(opt11, waveData);
-                              
-                          }
-                      } , false);
-                      
-                      
-                      /////////// SHOW AVERAGE
-                      var showAverage = function(file, wave) {
-                          d3.json(file, function (data) {
-                              var tmpDic = JSON.parse(JSON.stringify(data));
-                              for (var i in tmpDic) {
-                                  if (tmpDic[i].country == "Total"){
-                                      var lab = document.getElementById("totalAverage");
-                                      lab.innerHTML = "";
-                                      lab.innerHTML += "<p><strong>Average on the globe:</p></strong><p>Important: " + tmpDic[i].Yes + "%</p><p>Not important: " + tmpDic[i].No + "%" ; 
-                                  }
-                              }
-                          });
-                      };
-                      
-                      ///////////// TOP LIST
-                      var sortJson = function(file, wave) {
-                          d3.json(file, function (data){
-                              var tmpDic = JSON.parse(JSON.stringify(data));
-                              len = Object.keys(tmpDic).length;
-                              
-                              var labYes = document.getElementById("topListYes");
-                              labYes.innerHTML = "<strong>Top 5:</strong>";
-                              
-                              var tmpArr = [];
-                              
-                              for (var j = 0 ; j < 5 ; j++) {
-                                  var tmpVar;
-                                  for (var i in tmpDic) {
-                                      
-                                      if (tmpVar == undefined || tmpVar == "" || tmpVar.Yes < tmpDic[i].Yes) {
-                                          
-                                          if (tmpDic[i] != tmpVar) {
-                                              
-                                              if (tmpArr.includes(tmpDic[i])){
-                                                  continue;
-                                              } else {
-                                                  //tmpArr.push(tmpDic[i].country);
-                                                  tmpVar = tmpDic[i];
-                                              }
-                                          }
-                                      }
-                                  };
-                                  tmpArr.push(tmpVar);
-                                  labYes.innerHTML += "<p>" + tmpVar.country + ": " + tmpVar.Yes + "%" ; 
-                                  tmpVar = "";
-                              }
-                              
-                              var labNo = document.getElementById("topListNo");
-                              labNo.innerHTML = "<strong>Bottom 5:</strong>";
-                              
-                              for (var j = 0 ; j < 5 ; j++) {
-                                  var tmpVar;
-                                  for (var i in tmpDic) {
-                                      
-                                      if (tmpVar == undefined || tmpVar == "" || tmpVar.No > tmpDic[i].No) {
-                                          
-                                          if (tmpDic[i] != tmpVar) {
-                                              
-                                              if (tmpArr.includes(tmpDic[i])){
-                                                  continue;
-                                              } else {
-                                                  //tmpArr.push(tmpDic[i].country);
-                                                  tmpVar = tmpDic[i];
-                                              }
-                                          }
-                                      }
-                                  };
-                                  tmpArr.push(tmpVar);
-                                  labNo.innerHTML += "<p>" + tmpVar.country + ": " + tmpVar.No + "%" ; 
-                                  tmpVar = "";
-                              }
-                          })
-                      };
-                      
-                      
-                  </script>
+                          };
+
+
+                      </script>
+                  </div>   
               </div>
               
               <div id="legendInfo" width=100%>
