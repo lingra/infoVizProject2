@@ -96,6 +96,7 @@
                           <input class="resetButton" id="buttonReset" name="buttonReset" type="button" value="Reset Data"/>
                           <input class="chosebutton" id="buttonDeterm" name="buttonDeterm" type="button" value="Determination Perseverance"/>
                           <input class="chosebutton" id="buttonRespons" name="buttonRespons" type="button" value="Feeling Of Responsibility"/>
+                          <input class="chosebutton" id="buttonManners" name="buttonManners" type="button" value="Good Manners"/>
                           <input class="chosebutton" id="buttonHardWork" name="buttonHardWork" type="button" value="Hard Work"/>
                           <input class="chosebutton" id="buttonImagin" name="buttonImagin" type="button" value="Imagination"/>
                           <input class="chosebutton" id="buttonIndepen" name="buttonIndepen" type="button" value="Independence"/>
@@ -140,9 +141,6 @@
                           };
 
 
-                      var countries = ["DZA", "AZE", "ARG", "AUS", "ARM", "BRA", "BLR", "CHL", "CHN", "TWN", "COL", "CYP", "ECU", "EST", "GEO", "PSE", "DEU", "GHA", "HTI", "HKG", "IND", "IRQ", "JPN", "KAZ", "JOR", "KOR", "KWT", "KGZ", "LBN", "LBY", "MYS", "MEX", "MAR", "NLD", "NZL", "NGA", "PAK", "PER", "PHL", "POL", "QAT", "ROU", "RUS", "RWA", "SGP", "SVN", "ZAF", "ZWE", "ESP", "SWE", "THA", "TTO", "TUN", "TUR", "UKR", "EGY", "USA", "URY", "UZB", "YEM"];
-
-
                       /// FILE PATHES BASED ON WAVES
                       var opt1 = "./Data/" + waveData + "/ChildQual_DeterminationPerseverance.json";
                       var opt2 = "./Data/" + waveData + "/ChildQual_FeelingOfResponsibility.json";
@@ -155,96 +153,19 @@
                       var opt9 = "./Data/" + waveData + "/ChildQual_ThriftSavingMoneyAndThings.json";
                       var opt10 = "./Data/" + waveData + "/ChildQual_ToleranceAndRespectForOtherPeople.json";
                       var opt11 = "./Data/" + waveData + "/ChildQual_Unselfishness.json";
-
-
-                      //// DefaultData - Should be neutral
-                      var defaultData = {
-                          DZA: {fillKey: 'defaultFill'},
-                          AZE: {fillKey: 'defaultFill'},
-                          ARG: {fillKey: 'defaultFill'},
-                          AUS: {fillKey: 'defaultFill'},
-                          ARM: {fillKey: 'defaultFill'},
-                          AND: {fillKey: 'defaultFill'},
-                          BRA: {fillKey: 'defaultFill'},
-                          BLR: {fillKey: 'defaultFill'},
-                          CAN: {fillKey: 'defaultFill'},
-                          CHL: {fillKey: 'defaultFill'},
-                          CHN: {fillKey: 'defaultFill'},
-                          TWN: {fillKey: 'defaultFill'},
-                          COL: {fillKey: 'defaultFill'},
-                          CYP: {fillKey: 'defaultFill'},
-                          ECU: {fillKey: 'defaultFill'},
-                          EST: {fillKey: 'defaultFill'},
-                          FIN: {fillKey: 'defaultFill'},
-                          FRA: {fillKey: 'defaultFill'},
-                          GEO: {fillKey: 'defaultFill'},
-                          PSE: {fillKey: 'defaultFill'},
-                          DEU: {fillKey: 'defaultFill'},
-                          GHA: {fillKey: 'defaultFill'},
-                          HTI: {fillKey: 'defaultFill'},
-                          HKG: {fillKey: 'defaultFill'},
-                          IND: {fillKey: 'defaultFill'},
-                          IRQ: {fillKey: 'defaultFill'},
-                          JPN: {fillKey: 'defaultFill'},
-                          KAZ: {fillKey: 'defaultFill'},
-                          JOR: {fillKey: 'defaultFill'},
-                          KOR: {fillKey: 'defaultFill'},
-                          KWT: {fillKey: 'defaultFill'},
-                          KGZ: {fillKey: 'defaultFill'},
-                          LBN: {fillKey: 'defaultFill'},
-                          LBY: {fillKey: 'defaultFill'},
-                          MYS: {fillKey: 'defaultFill'},
-                          MEX: {fillKey: 'defaultFill'},
-                          MAR: {fillKey: 'defaultFill'},
-                          NLD: {fillKey: 'defaultFill'},
-                          NZL: {fillKey: 'defaultFill'},
-                          NGA: {fillKey: 'defaultFill'},
-                          NOR: {fillKey: 'defaultFill'},
-                          PAK: {fillKey: 'defaultFill'},
-                          PER: {fillKey: 'defaultFill'},
-                          PHL: {fillKey: 'defaultFill'},
-                          POL: {fillKey: 'defaultFill'},
-                          QUA: {fillKey: 'defaultFill'},
-                          ROU: {fillKey: 'defaultFill'},
-                          RUS: {fillKey: 'defaultFill'},
-                          RWA: {fillKey: 'defaultFill'},
-                          SGP: {fillKey: 'defaultFill'},
-                          SVN: {fillKey: 'defaultFill'},
-                          ZAF: {fillKey: 'defaultFill'},
-                          ZWE: {fillKey: 'defaultFill'},
-                          ESP: {fillKey: 'defaultFill'},
-                          SWE: {fillKey: 'defaultFill'},
-                          THA: {fillKey: 'defaultFill'},
-                          TTO: {fillKey: 'defaultFill'},
-                          TUN: {fillKey: 'defaultFill'},
-                          TUR: {fillKey: 'defaultFill'},
-                          UKR: {fillKey: 'defaultFill'},
-                          EGY: {fillKey: 'defaultFill'},
-                          USA: {fillKey: 'defaultFill'},
-                          URY: {fillKey: 'defaultFill'},
-                          UZB: {fillKey: 'defaultFill'},
-                          YEM: {fillKey: 'defaultFill'}
-                      };
-
-                      var defaultDataOriginal = JSON.parse(JSON.stringify(defaultData));
-                      var defaultDataEmpty = {};
+                      var opt12 = "./Data/" + waveData + "/ChildQual_GoodManners.json";
 
 
                       /////// UPDATE DATA TO MAP
                       var updateData = function (file) {
-                          //try {
-                              d3.json(file, function (data) {
-
-                                  /// Nollställ kartan
-                                  worldMap.updateChoropleth(defaultDataOriginal);
-
-                                  /// Nya färger
+                          d3.json(file, function (data) {
+                              var labText = document.getElementById("totalAverage");
+                              if (data == undefined) {
+                                  labText.innerHTML += "<p style='font-size:36px;'><strong>No Data Available</strong></p>"; 
+                              } else {
                                   worldMap.updateChoropleth(data);
-                              })
-                              return '';
-                          //} catch(err) {
-                              return "error";
-                          //}
+                              };
+                          });
                       };
 
 
@@ -318,11 +239,10 @@
                       
                       
                       createWorldMap();
+                      
                       ///// RESET
                       document.getElementById('buttonReset').addEventListener('click', function(e) {
-                          var divMap = document.getElementById("world-map");
-                          divMap.innerHTML = "";
-                              createWorldMap();
+                          emptyMap();
                       } , false);
 
 
@@ -330,16 +250,12 @@
                       document.getElementById('buttonDeterm').addEventListener('click', function(e){ 
                           if (!waveData){
                           } else {
-                              try {
-                                  opt1 = "./Data/" + waveData + "/ChildQual_DeterminationPerseverance.json";
-                                  updateData(opt1);
-                                  changeLabel(document.getElementById('buttonDeterm').value);
-                                  showAverage(opt1, waveData);
-                                  sortJson(opt1, waveData);
-                              } catch (error){
-                                  console.log("error");
-                          }
-
+                              opt1 = "./Data/" + waveData + "/ChildQual_DeterminationPerseverance.json";
+                              emptyMap();
+                              updateData(opt1);
+                              changeLabel(document.getElementById('buttonDeterm').value);
+                              showAverage(opt1, waveData);
+                              sortJson(opt1, waveData);
                           }
                       } , false);
 
@@ -347,16 +263,25 @@
                       document.getElementById("buttonRespons").addEventListener('click', function(e){ 
                           if (!waveData){
                           } else {
-                              try {
-                                  opt2 = "./Data/" + waveData + "/ChildQual_FeelingOfResponsibility.json";
-                                  updateData(opt2);
-                                  changeLabel(document.getElementById('buttonRespons').value);
-                                  showAverage(opt2, waveData);
-                                  sortJson(opt2, waveData);
-                              } catch (error) {
-                                  console.log("error");
-                              }
-
+                              opt2 = "./Data/" + waveData + "/ChildQual_FeelingOfResponsibility.json";
+                              emptyMap();
+                              updateData(opt2);
+                              changeLabel(document.getElementById('buttonRespons').value);
+                              showAverage(opt2, waveData);
+                              sortJson(opt2, waveData);
+                          }
+                      } , false);
+                      
+                      
+                      document.getElementById("buttonManners").addEventListener('click', function(e){ 
+                          if (!waveData){
+                          } else {
+                              opt12 = "./Data/" + waveData + "/ChildQual_GoodManners.json";
+                              emptyMap();
+                              updateData(opt12);
+                              changeLabel(document.getElementById('buttonManners').value);
+                              showAverage(opt12, waveData);
+                              sortJson(opt12, waveData);
                           }
                       } , false);
 
@@ -365,6 +290,7 @@
                           if (!waveData){
                           } else {
                               opt3 = "./Data/" + waveData + "/ChildQual_HardWork.json";
+                              emptyMap();
                               updateData(opt3);
                               changeLabel(document.getElementById('buttonHardWork').value);
                               showAverage(opt3, waveData); 
@@ -378,6 +304,7 @@
                           if (!waveData){
                           } else {
                               opt4 = "./Data/" + waveData + "/ChildQual_Imagination.json";
+                              emptyMap();
                               updateData(opt4);
                               changeLabel(document.getElementById('buttonImagin').value);
                               showAverage(opt4, waveData); 
@@ -391,6 +318,7 @@
                           if (!waveData){
                           } else {
                               opt5 = "./Data/" + waveData + "/ChildQual_Independence.json";
+                              emptyMap();
                               updateData(opt5);
                               changeLabel(document.getElementById('buttonIndepen').value);
                               showAverage(opt5, waveData); 
@@ -404,6 +332,7 @@
                           if (!waveData){
                           } else {
                               opt6 = "./Data/" + waveData + "/ChildQual_Obedience.json";
+                              emptyMap();
                               updateData(opt6);
                               changeLabel(document.getElementById('buttonObedien').value);
                               showAverage(opt6, waveData);
@@ -417,6 +346,7 @@
                           if (!waveData){
                           } else {
                               opt7 = "./Data/" + waveData + "/ChildQual_ReligiousFaith.json";
+                              emptyMap();
                               updateData(opt7);
                               changeLabel(document.getElementById('buttonReligios').value);
                               showAverage(opt7, waveData);
@@ -430,9 +360,8 @@
                           if (!waveData){
                           } else {
                               opt8 = "./Data/" + waveData + "/ChildQual_SelfExpression.json";
-                              testerr = updateData(opt8);
-                              if (testerr == "error")
-                                  document.getElementById("buttonSelfEx").disabled = true;
+                              emptyMap();
+                              updateData(opt8);
                               changeLabel(document.getElementById('buttonSelfEx').value);
                               showAverage(opt8, waveData);
                               sortJson(opt8, waveData);
@@ -445,6 +374,7 @@
                           if (!waveData){
                           } else {
                               opt9 = "./Data/" + waveData + "/ChildQual_ThriftSavingMoneyAndThings.json";
+                              emptyMap();
                               updateData(opt9);
                               changeLabel(document.getElementById('buttonThrift').value);
                               showAverage(opt9, waveData);
@@ -458,6 +388,7 @@
                           if (!waveData){
                           } else {
                               opt10 = "./Data/" + waveData + "/ChildQual_ToleranceAndRespectForOtherPeople.json";
+                              emptyMap();
                               updateData(opt10);
                               changeLabel(document.getElementById('buttonToleranc').value);
                               showAverage(opt10, waveData);
@@ -471,6 +402,7 @@
                           if (!waveData){
                           } else {
                               opt11 = "./Data/" + waveData + "/ChildQual_Unselfishness.json";
+                              emptyMap();
                               updateData(opt11); 
                               changeLabel(document.getElementById('buttonUnself').value);
                               showAverage(opt11, waveData);
@@ -497,8 +429,10 @@
                       ///////////// TOP LIST
                       var sortJson = function(file, wave) {
                           d3.json(file, function (data){
+                              console.log(data);
                               var tmpDic = JSON.parse(JSON.stringify(data));
-                              len = Object.keys(tmpDic).length;
+                              var len = Object.keys(tmpDic).length;
+                              console.log(len);
 
                               var labYes = document.getElementById("topListYes");
                               labYes.innerHTML = "<strong>Top 5:</strong>";
@@ -552,23 +486,30 @@
                               }
                           })
                       };
+                      
+                      
+                      /////////// EMPTY DRAWING AREA
+                      var emptyMap = function() {
+                          document.getElementById("world-map").innerHTML = "";
+                          createWorldMap();
+                          document.getElementById("detailInfo").innerHTML = "";
+                          document.getElementById("totalAverage").innerHTML = "";
+                          document.getElementById("topListYes").innerHTML = "";
+                          document.getElementById("topListNo").innerHTML = "";
+                      };
 
 
                   </script>
               </div>
               
-              <div id="legendInfo" width=100%>
-                  <script>
-                      worldMap.legend();
-                  </script>
-              </div>
+              <div id="legendInfo" width=100%></div>
           </div> 
           
           <div class="col-sm-4">
               <div id="showTextData">
                   <div class="row">
                       <div class="col-sm-2"></div>
-                      <div class="col-sm-8">
+                      <div class="col-sm-9">
                           <div id="information">
                               <div id="detailInfo"></div>
                               <hr>
@@ -586,7 +527,7 @@
                               <div id="countryDetail"></div>
                           </div>
                       </div>
-                      <div class="col-sm-2"></div>
+                      <div class="col-sm-1"></div>
                   </div>
               </div>
           </div>
