@@ -36,11 +36,14 @@
               padding: 7px;
               color: red;
           }
+          #trailsButton {
+              background-color: aquamarine;
+          }
           #world-map {
-              background-color: ghostwhite;
+              /*background-color: ghostwhite;*/
               position: relative; 
-              width: 900px; 
-              height: 630px;
+              width: 835px; 
+              height: 600px;
               display: inline-block;
               text-align: center;
           }
@@ -86,7 +89,12 @@
                               <p><label id="year"></label></p>
                           </div>
                       </div>
-                      <div class="col-sm-3"></div>
+                      <div class="col-sm-3">
+                          <div id="analyticTrail">
+                              Here you'll find my trails and learning:
+                              <input class="analyticTrail" id="trailsButton" name="trailButton" type="button" onclick=" window.open('https://docs.google.com/document/d/1sRDmdO-l_q0z16XKwRKJO44-qwL1hY3Kv29FCRABkY8/edit?usp=sharing','_blank')" value="Analytic Trails and Learning"/>
+                          </div>
+                      </div>
                       </div>
                   
                   
@@ -223,6 +231,7 @@
                                   }
                               }
                           });
+                          worldMap.legend();
                       }
 
 
@@ -511,6 +520,7 @@
                       <div class="col-sm-2"></div>
                       <div class="col-sm-9">
                           <div id="information">
+                              <hr>
                               <div id="detailInfo"></div>
                               <hr>
                               <div id="totalAverage"></div>
