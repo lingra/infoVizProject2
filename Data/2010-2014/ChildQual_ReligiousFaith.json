@@ -14,13 +14,13 @@
    "ARG": {
       "Country": "Argentina",
       "fillKey": 20,
-      "Yes": 23.2",
+      "Yes": 23.2,
       "No": 76.8
    },
    "AUS": {
       "Country": "Australia",
       "fillKey": 20,
-      "Yes": 15.2",
+      "Yes": 15.2,
       "No": 84.8
    },
    "ARM": {
@@ -33,7 +33,7 @@
       "Country": "Brazil",
       "fillKey": 50,
       "Yes": 49.8,
-      "No": 50.2"
+      "No": 50.2
    },
    "BLR": {
       "Country": "Belarus",
@@ -50,7 +50,7 @@
    "CHN": {
       "Country": "China",
       "fillKey": 0,
-      "Yes": 1.2",
+      "Yes": 1.2,
       "No": 98.8
    },
    "TWN": {
@@ -81,7 +81,7 @@
       "Country": "Estonia",
       "fillKey": 20,
       "Yes": 18.8,
-      "No": 81.2"
+      "No": 81.2
    },
    "GEO": {
       "Country": "Georgia",
@@ -92,7 +92,7 @@
    "PSE": {
       "Country": "Palestine",
       "fillKey": 80,
-      "Yes": 76.2",
+      "Yes": 76.2,
       "No": 23.8
    },
    "DEU": {
@@ -147,7 +147,7 @@
       "Country": "Jordan",
       "fillKey": 80,
       "Yes": 79.8,
-      "No": 20.2"
+      "No": 20.2
    },
    "KOR": {
       "Country": "South Korea",
@@ -159,13 +159,13 @@
       "Country": "Kuwait",
       "fillKey": 70,
       "Yes": 73.8,
-      "No": 26.2"
+      "No": 26.2
    },
    "KGZ": {
       "Country": "Kyrgyzstan",
       "fillKey": 20,
       "Yes": 24.8,
-      "No": 75.2"
+      "No": 75.2
    },
    "LBN": {
       "Country": "Lebanon",
@@ -183,7 +183,7 @@
       "Country": "Malaysia",
       "fillKey": 60,
       "Yes": 63.8,
-      "No": 36.2"
+      "No": 36.2
    },
    "MEX": {
       "Country": "Mexico",
@@ -219,7 +219,7 @@
       "Country": "Pakistan",
       "fillKey": 70,
       "Yes": 72.8,
-      "No": 27.2"
+      "No": 27.2
    },
    "PER": {
       "Country": "Peru",
@@ -231,7 +231,7 @@
       "Country": "Philippines",
       "fillKey": 60,
       "Yes": 59.8,
-      "No": 40.2"
+      "No": 40.2
    },
    "POL": {
       "Country": "Poland",
@@ -260,13 +260,13 @@
    "RWA": {
       "Country": "Rwanda",
       "fillKey": 40,
-      "Yes": 42.2",
+      "Yes": 42.2,
       "No": 57.8
    },
    "SGP": {
       "Country": "Singapore",
       "fillKey": 30,
-      "Yes": 26.2",
+      "Yes": 26.2,
       "No": 73.8
    },
    "SVN": {
@@ -345,7 +345,7 @@
       "Country": "Uruguay",
       "fillKey": 20,
       "Yes": 15.8,
-      "No": 84.2"
+      "No": 84.2
    },
    "UZB": {
       "Country": "Uzbekistan",
